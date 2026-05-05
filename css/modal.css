@@ -1,0 +1,322 @@
+/* ============================================
+   モーダルフォーム共通スタイル
+   ============================================ */
+
+/* オーバーレイ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 16px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.modal-overlay.active {
+    display: flex;
+}
+body.modal-open {
+    overflow: hidden;
+}
+
+/* モーダル本体 */
+.modal-container {
+    background: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 640px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalSlideIn 0.3s ease;
+    margin: auto;
+}
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* モーダルヘッダー */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #E5E7EB;
+}
+.modal-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+.modal-close-btn {
+    width: 36px; height: 36px;
+    border: none;
+    background: #F3F4F6;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.modal-close-btn:hover {
+    background: #E5E7EB;
+}
+
+/* モーダルボディ */
+.modal-body {
+    padding: 24px;
+}
+
+/* フォーム共通 */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+.form-label .required {
+    color: #DC2626;
+    margin-left: 4px;
+    font-size: 12px;
+}
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #111827;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #fff;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #B91C1C;
+    box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1);
+}
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* チェックボックス行 */
+.form-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.form-checkbox-row input[type="checkbox"] {
+    width: 18px; height: 18px;
+    accent-color: #B91C1C;
+    cursor: pointer;
+}
+.form-checkbox-row label {
+    font-size: 13px;
+    color: #4B5563;
+    cursor: pointer;
+}
+
+/* チェックボックスグループ（スキャン対象など） */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #374151;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background 0.15s;
+}
+.checkbox-group label:hover {
+    background: #F9FAFB;
+}
+.checkbox-group input[type="checkbox"] {
+    width: 16px; height: 16px;
+    accent-color: #B91C1C;
+}
+
+/* セレクトボックス */
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+/* ファイル添付 */
+.file-input-wrapper {
+    position: relative;
+}
+.file-input-wrapper input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 13px;
+    border: 1px dashed #D1D5DB;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* 個人チェック切替 */
+.personal-toggle {
+    margin-bottom: 20px;
+}
+
+/* 問い合わせのみチェック */
+.inquiry-toggle {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #F9FAFB;
+    border-radius: 6px;
+}
+
+/* プライバシーポリシー同意 */
+.privacy-agree {
+    padding: 12px;
+    background: #FFFBF5;
+    border: 1px solid #FDE68A;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.privacy-agree a {
+    color: #B91C1C;
+    text-decoration: underline;
+}
+
+/* 送信ボタン */
+.form-submit-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.form-submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(185, 28, 28, 0.4);
+}
+.form-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* エラーメッセージ */
+.form-error {
+    color: #DC2626;
+    font-size: 12px;
+    margin-top: 4px;
+}
+.form-errors-summary {
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: #991B1B;
+}
+
+/* 成功メッセージ */
+.form-success {
+    text-align: center;
+    padding: 40px 24px;
+}
+.form-success-icon {
+    width: 64px; height: 64px;
+    background: #D1FAE5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+.form-success h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #065F46;
+    margin-bottom: 8px;
+}
+.form-success p {
+    font-size: 14px;
+    color: #4B5563;
+    line-height: 1.7;
+}
+
+/* ローディング */
+.spinner {
+    display: inline-block;
+    width: 18px; height: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* セクション区切り */
+.form-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #B91C1C;
+    border-bottom: 2px solid #B91C1C;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+
+/* レスポンシブ */
+@media (max-width: 640px) {
+    .modal-overlay {
+        padding: 16px 8px;
+    }
+    .modal-container {
+        max-width: 100%;
+    }
+    .modal-body {
+        padding: 16px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W9QKFBZ');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wdhqk1eufx");
+    </script>
+    <!-- End Microsoft Clarity -->
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>スキャンPro | 高品質スキャニングサービス - 書類電子化のスペシャリスト</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/modal.css">
+    <style>
+        :root {
+            --primary: #B91C1C;
+            --primary-dark: #991B1B;
+            --primary-light: #EF4444;
+            --primary-gradient: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+            --hero-bg: #B91C1C;
+            --hero-bg-dark: #991B1B;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --text-muted: #9CA3AF;
+            --bg-white: #FFFFFF;
+            --bg-light: #F9FAFB;
+            --bg-cream: #FFFBF5;
+            --bg-dark: #111827;
+            --border: #E5E7EB;
+            --accent-yellow: #FCD34D;
+            --accent-green: #10B981;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.8;
+            background: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        .header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: var(--bg-white);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
+        }
+        .header.scrolled { box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08); }
+        .header-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 20px; height: 72px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo img { height: 32px; width: auto; }
+        .phone-header {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--text-primary); text-decoration: none;
+            font-weight: 700; font-size: 16px; font-family: 'Poppins', sans-serif;
+        }
+        .phone-header svg { color: var(--primary); }
+        .header-actions { display: flex; align-items: center; gap: 12px; }
+        .nav-link-header { color: var(--text-primary); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; margin-right: 16px; }
+        .nav-link-header:hover { color: var(--primary); }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600;
+            text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer; border: none; position: relative; overflow: hidden;
+        }
+        .btn-header-primary { background: var(--primary); color: white; }
+        .btn-header-primary:hover { background: var(--primary-dark); }
+        .btn-header-outline { background: transparent; border: 1px solid var(--border); color: var(--text-primary); }
+        .btn-header-outline:hover { background: var(--bg-light); border-color: var(--text-muted); }
+        .btn-primary { background: var(--primary-gradient); color: white; box-shadow: 0 4px 14px rgba(185, 28, 28, 0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(185, 28, 28, 0.5); }
+        .btn-lg { padding: 16px 32px; font-size: 15px; }
+        .btn-xl { padding: 18px 40px; font-size: 16px; }
+        .btn-outline { background: transparent; border: 2px solid var(--border); color: var(--text-primary); }
+        .btn-outline:hover { background: var(--bg-light); border-color: var(--text-muted); }
+        .hero {
+            padding-top: 72px; background: var(--hero-bg); position: relative; overflow: hidden;
+            min-height: calc(100vh - 100px); display: flex; flex-direction: column;
+        }
+        .hero-main { flex: 1; display: flex; align-items: center; position: relative; z-index: 2; }
+        .hero::after {
+            content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%;
+            background: var(--bg-light); clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); z-index: 1;
+        }
+        .hero-inner {
+            max-width: 1280px; margin: 0 auto; padding: 50px 32px 40px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: center; position: relative; z-index: 3; width: 100%;
+        }
+        .hero-content { color: white; }
+        .hero-subtitle { font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.12em; display: inline-block; background: rgba(0,0,0,0.8); color: #FCD34D; padding: 12px 24px; border-radius: 6px; }
+        .hero-title { font-size: 48px; font-weight: 900; line-height: 1.3; margin-bottom: 2px; letter-spacing: 0.08em; }
+        .hero-description { font-size: 22px; margin-bottom: 32px; line-height: 1.9; opacity: 0.95; }
+        .hero-stats { display: flex; gap: 40px; margin-bottom: 32px; }
+        .stat-item { display: flex; align-items: center; gap: 8px; }
+        .stat-laurel { color: #9AE6B4; font-size: 24px; }
+        .stat-content { text-align: center; }
+        .stat-label { font-size: 14px; opacity: 0.8; margin-bottom: 2px; }
+        .stat-number { font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 800; line-height: 1; }
+        .stat-number span { font-size: 16px; font-weight: 600; }
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .hero-cta-sub { display: flex; align-items: center; gap: 6px; font-size: 13px; opacity: 0.9; }
+        .hero-cta-sub svg { color: #9AE6B4; }
+        .btn-hero {
+            display: flex; align-items: center; gap: 12px; padding: 16px 28px; border-radius: 8px;
+            font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer;
+        }
+        .btn-hero-primary { background: white; color: var(--hero-bg); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .btn-hero-phone {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            color: #1F2937; box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5); animation: pulse-phone 2s infinite;
+        }
+        .btn-hero-phone:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 28px rgba(245, 158, 11, 0.6); }
+        @keyframes pulse-phone {
+            0%, 100% { box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5); }
+            50% { box-shadow: 0 4px 30px rgba(245, 158, 11, 0.8); }
+        }
+        .btn-hero-phone-icon {
+            display: flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; background: rgba(255,255,255,0.3); border-radius: 50%;
+        }
+        .btn-hero-phone-text { display: flex; flex-direction: column; text-align: left; }
+        .btn-hero-phone-label { font-size: 10px; font-weight: 500; opacity: 0.8; }
+        .btn-hero-phone-number { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: 0.5px; }
+        .hero-image { position: relative; z-index: 3; }
+        .hero-image-wrapper { position: relative; height: 480px; }
+        .hero-image-main {
+            position: absolute; width: 100%; max-width: 480px; border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2); top: 0; left: -40px; z-index: 2;
+        }
+        .hero-image-secondary {
+            position: absolute; width: 100%; max-width: 480px; border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15); bottom: 0; right: -40px; z-index: 1;
+        }
+        .hero-image-float {
+            position: absolute; background: white; border-radius: 12px; padding: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12); z-index: 3;
+        }
+        .hero-image-float-1 { top: 50%; right: -10px; display: flex; align-items: center; gap: 10px; }
+        .hero-image-float-icon {
+            width: 40px; height: 40px; background: #E8F5E9; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; color: var(--accent-green);
+        }
+        .hero-image-float-text { font-size: 13px; color: var(--text-secondary); }
+        .logo-marquee {
+    padding: 10px 0; /* 上下の余裕を確保 */
+    background: var(--bg-white);
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    z-index: 4;
+}
+        .marquee-wrapper { display: flex; overflow: hidden; position: relative; }
+        .marquee-wrapper::before, .marquee-wrapper::after {
+            content: ''; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; pointer-events: none;
+        }
+        .marquee-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .marquee-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
+        .marquee-track { display: flex; animation: marquee 45s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .marquee-item {
+            flex-shrink: 0; padding: 0 15px; display: flex; align-items: center; justify-content: center; 
+        }
+        .marquee-item img {
+    height: 60px;      /* 少しサイズ調整 */
+    width: auto;
+    object-fit: contain;
+
+    filter: grayscale(0%);
+}
+        .marquee-item:hover img { opacity: 1; filter: grayscale(0%); }
+        .section { padding: 80px 32px; }
+        .section-dark { background: var(--bg-dark); color: white; position: relative; }
+        .section-dark::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('image/hero-document-scan.webp') center/cover no-repeat; opacity: 0.25; z-index: 0; }
+        .section-dark .section-inner { position: relative; z-index: 1; }
+        .section-cream { background: var(--bg-cream); }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-label {
+            display: inline-block; font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700;
+            color: var(--primary); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: 36px; font-weight: 800; margin-bottom: 16px; color: var(--text-primary);
+            letter-spacing: -0.02em; line-height: 1.3;
+        }
+        .section-dark .section-title { color: white; }
+        .section-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.8; }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.7); }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .feature-card {
+            background: white; border-radius: 16px; padding: 32px; border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
+        }
+        .feature-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--primary-gradient); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+        }
+        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1); border-color: transparent; }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-icon { width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .feature-icon.primary { background: linear-gradient(135deg, rgba(185, 28, 28, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%); color: var(--primary); }
+        .feature-icon.yellow { background: linear-gradient(135deg, rgba(252, 211, 77, 0.2) 0%, rgba(251, 191, 36, 0.2) 100%); color: #D97706; }
+        .feature-icon.green { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); color: var(--accent-green); }
+        .feature-number { font-family: 'Poppins', sans-serif; font-size: 40px; font-weight: 800; color: rgba(185, 28, 28, 0.08); position: absolute; top: 16px; right: 20px; }
+        .feature-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
+        .feature-description { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
+        .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .problem-list { list-style: none; }
+        .problem-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .problem-item:last-child { border-bottom: none; }
+        .problem-icon { width: 44px; height: 44px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent-yellow); }
+        .problem-text { font-size: 17px; line-height: 1.7; opacity: 0.9; }
+        .solution-card { background: white; border-radius: 20px; padding: 40px; color: var(--text-primary); box-shadow: var(--shadow-xl); }
+        .solution-badge { display: inline-block; background: var(--primary-gradient); color: white; padding: 5px 14px; border-radius: 50px; font-size: 12px; font-weight: 600; margin-bottom: 16px; }
+        .solution-title { font-size: 24px; font-weight: 800; margin-bottom: 24px; color: var(--text-primary); }
+        .solution-list { list-style: none; }
+        .solution-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 15px; }
+        .solution-check { width: 24px; height: 24px; background: var(--accent-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; font-size: 12px; }
+        /* PC: スクロール駆動ラッパーを無効化 */
+        .features-scroll-spacer, .cases-scroll-spacer { display: contents; }
+        .features-sticky, .cases-sticky { display: contents; }
+        .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .cases-scroll-bar { display: none; }
+        .case-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); transition: all 0.4s ease; }
+        .case-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+        .case-image { aspect-ratio: 16/9; background: linear-gradient(135deg, #E5E7EB 0%, #F3F4F6 100%); overflow: hidden; }
+        .case-image img { width: 100%; height: 100%; object-fit: cover; }
+        .case-content { padding: 28px; }
+        .case-badge { display: inline-block; padding: 4px 16px; background:#bf1e1d; border-radius: 50px; font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 12px; }
+        .case-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); line-height: 1.5; }
+        .case-description { font-size: 16px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.7; }
+        .case-results { display: flex; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+        .case-result-item { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-secondary); font-weight: 500; }
+        .case-result-item svg { color: var(--accent-green); }
+        .process-container { background: white; border-radius: 24px; padding: 56px; box-shadow: var(--shadow-lg); }
+        .process-steps { display: flex; justify-content: space-between; position: relative; }
+        .process-steps::before { content: ''; position: absolute; top: 40px; left: 80px; right: 80px; height: 2px; background: var(--border); }
+        .process-step { text-align: center; position: relative; flex: 1; }
+        .process-number { width: 80px; height: 80px; border-radius: 50%; background: var(--primary-gradient); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 800; margin: 0 auto 20px; position: relative; z-index: 1; box-shadow: 0 6px 20px rgba(185, 28, 28, 0.3); }
+        .process-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+        .process-description { font-size: 13px; color: var(--text-secondary); max-width: 160px; margin: 0 auto; line-height: 1.6; }
+        .download-cta-section { background: #b91c1c; position: relative; overflow: hidden; padding-top: 0; padding-bottom: 0; }
+        .download-cta-section .section-inner { padding-top: 32px; padding-bottom: 32px; }
+        .download-cta-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 48px; }
+        .download-cta-image { flex: 0 0 360px; position: relative; }
+        .download-cta-image img { width: 100%; border-radius: 8px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12); }
+        .download-cta-content { flex: 1; }
+        .download-cta-label { display: inline-flex; align-items: center; gap: 6px; background:#fffbf5; color: #b91c1c; padding: 5px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+        .download-cta-title { font-size: 26px; font-weight: 800; line-height: 1.5; margin-bottom: 12px; color: #ffffff; }
+        .download-cta-description { font-size: 15px; color: #ffffff; margin-bottom: 24px; line-height: 1.8; }
+        .download-cta-content .btn-white { background: white; color: var(--primary); border: 2px solid white; box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+        .download-cta-content .btn-white:hover { background: var(--bg-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        @media (max-width: 768px) {
+            .download-cta-inner { flex-direction: column; gap: 24px; text-align: center; }
+            .download-cta-image { flex: 0 0 auto; max-width: 240px; margin: 0 auto; }
+            .download-cta-title { font-size: 22px; }
+        }
+        .cta-section { background: var(--primary-gradient); color: white; text-align: center; position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; top: -50%; right: -25%; width: 50%; height: 200%; background: rgba(255,255,255,0.05); transform: rotate(15deg); }
+        .cta-content { position: relative; z-index: 1; }
+        .cta-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+        .cta-description { font-size: 16px; opacity: 0.9; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+        .btn-white { background: white; color: var(--primary); box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+        .btn-white:hover { background: var(--bg-light); transform: translateY(-2px); }
+        .btn-ghost { background: rgba(255,255,255,0.1); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .btn-ghost:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
+        .cta-phone { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .cta-phone-label { font-size: 17px; opacity: 0.8; }
+        .cta-phone-number { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .footer { background: var(--bg-dark); color: white; padding: 64px 32px 32px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+        .footer-brand { max-width: 280px; }
+        .footer-logo { margin-bottom: 16px; }
+        .footer-logo img { height: 28px; width: auto; }
+        .footer-description { font-size: 13px; opacity: 0.6; line-height: 1.8; }
+        .footer-heading { font-size: 13px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: white; opacity: 0.6; text-decoration: none; font-size: 13px; transition: opacity 0.2s; }
+        .footer-links a:hover { opacity: 1; }
+        .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
+        .footer-copyright { font-size: 12px; opacity: 0.5; }
+        .cta-popup { position: fixed; bottom: 100px; right: 24px; z-index: 999; display: none; }
+        .cta-popup.show { display: block; animation: slideUp 0.4s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .cta-popup-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); width: 540px; position: relative; }
+        .cta-popup-top { display: flex; gap: 20px; align-items: center; margin-bottom: 16px; }
+        .cta-popup-top-text { flex: 1; }
+        .cta-popup-image { flex: 0 0 190px; }
+        .cta-popup-image img { width: 100%; height: auto; border-radius: 6px; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .cta-popup-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border: none; background: var(--text-primary); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.2s; z-index: 1; }
+        .cta-popup-close:hover { background: var(--primary); color: white; }
+        .cta-popup-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-yellow); color: #92400E; padding: 5px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; margin-bottom: 12px; }
+        .cta-popup-title { font-size: 18px; font-weight: 800; margin-bottom: 10px; color: var(--text-primary); line-height: 1.4; }
+        .cta-popup-description { font-size: 13px; color: var(--text-secondary); margin-bottom: 0; line-height: 1.6; }
+        .cta-popup-buttons { display: flex; flex-direction: column; gap: 10px; }
+        .cta-popup-buttons .btn { width: 100%; justify-content: center; padding: 12px 20px; font-size: 13px; }
+        .cta-popup-phone { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+        .cta-popup-phone a { color: var(--text-primary); text-decoration: none; font-weight: 700; font-size: 16px; font-family: 'Poppins', sans-serif; }
+        .cta-popup-phone svg { color: var(--primary); }
+        .floating-mini { position: fixed; bottom: 100px; right: 24px; z-index: 998; display: flex; flex-direction: column; gap: 10px; }
+        .floating-mini.hidden { display: none; }
+        .floating-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; cursor: pointer; border: none; text-decoration: none; }
+        .floating-btn:hover { transform: scale(1.1); }
+        .floating-phone { background: var(--accent-green); color: white; }
+        .floating-mail { background: var(--primary-gradient); color: white; }
+        .floating-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(185, 28, 28, 0.95); backdrop-filter: blur(10px); z-index: 999; padding: 12px 32px; display: none; border-top: 1px solid rgba(255,255,255,0.1); }
+        .floating-cta-bar.show { display: block; animation: slideUpBar 0.4s ease; }
+        @keyframes slideUpBar { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
+        .floating-cta-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .floating-cta-bar-text { color: white; font-size: 14px; font-weight: 500; }
+        .floating-cta-bar-buttons { display: flex; gap: 12px; }
+        .floating-cta-bar-close { background: none; border: none; color: white; cursor: pointer; padding: 8px; opacity: 0.7; transition: opacity 0.2s; }
+        .floating-cta-bar-close:hover { opacity: 1; }
+        .btn-bar { padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .btn-bar-primary { background: white; color: var(--primary); }
+        .btn-bar-primary:hover { background: var(--bg-light); }
+        .btn-bar-secondary { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
+        .btn-bar-secondary:hover { background: rgba(255,255,255,0.1); }
+        .floating-chat { position: fixed; bottom: 80px; right: 24px; z-index: 998; }
+        .floating-chat-btn { width: 56px; height: 56px; border-radius: 50%; background: #3B82F6; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); border: none; cursor: pointer; transition: all 0.3s ease; }
+        .floating-chat-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(59, 130, 246, 0.5); }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Hamburger menu */
+        .hamburger-btn { display: none; flex-direction: column; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; }
+        .hamburger-btn span { width: 24px; height: 2px; background: var(--text-primary); transition: all 0.3s ease; display: block; }
+        .hamburger-btn.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger-btn.active span:nth-child(2) { opacity: 0; }
+        .hamburger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
+        .mobile-nav { display: none; position: absolute; top: 56px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); flex-direction: column; gap: 0; z-index: 999; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { padding: 14px 16px; color: var(--text-primary); text-decoration: none; font-size: 14px; border-bottom: 1px solid var(--border); }
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { background: var(--bg-light); }
+        /* Mobile-only elements - hidden by default on PC */
+        .mobile-header-actions { display: none; }
+        .mobile-phone-btn { display: none; }
+        .mobile-cta-btn { display: none; }
+        .scroll-hint-mobile { display: none; }
+        .trust-numbers { display: none; }
+        .mini-cta-mobile { display: none; }
+        .feature-progress { display: none; }
+        .mobile-floating-buttons { display: none; }
+        .feature-img { display: none; }
+
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+            .hero::after { display: none; }
+            .hero { min-height: auto; }
+            .hero-main { padding-bottom: 40px; }
+            .hero-image { display: block; }
+            .hero-image-wrapper { height: 280px; max-width: 500px; margin: 0 auto; }
+            .hero-image-main { width: 60%; max-width: 280px; }
+            .hero-image-secondary { width: 55%; max-width: 250px; }
+            .hero-title { font-size: 36px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+            .process-steps { flex-wrap: wrap; gap: 32px; }
+            .process-steps::before { display: none; }
+            .process-step { flex: 0 0 calc(50% - 16px); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            /* Stagger animations */
+            .stagger-1 { transition-delay: 0.05s; }
+            .stagger-2 { transition-delay: 0.1s; }
+            .stagger-3 { transition-delay: 0.15s; }
+            .stagger-4 { transition-delay: 0.2s; }
+            .stagger-5 { transition-delay: 0.25s; }
+            .stagger-6 { transition-delay: 0.3s; }
+
+            /* === HEADER === */
+            .header { border-bottom: none; box-shadow: 0 1px 8px rgba(0,0,0,0.08); }
+            .header-inner { padding: 0 12px; height: 60px; }
+            .logo { flex-shrink: 0; }
+            .logo img { height: 22px; }
+            .header-actions { display: none; }
+            .hamburger-btn { display: flex; flex-shrink: 0; width: 40px; height: 40px; }
+            .mobile-header-actions { display: flex; align-items: center; gap: 6px; margin-left: auto; margin-right: 4px; }
+            .mobile-phone-btn { display: inline-flex; align-items: center; gap: 4px; height: 36px; border-radius: 50px; font-size: 12px; font-weight: 700; padding: 0 14px; letter-spacing: 0.05em; background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%); color: #1F2937; text-decoration: none; }
+            .mobile-phone-btn svg { width: 14px; height: 14px; }
+            .mobile-cta-btn { display: inline-flex; align-items: center; gap: 4px; height: 36px; padding: 0 14px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; background: var(--primary); color: white; text-decoration: none; }
+
+            /* === HERO (FV full screen) === */
+            .hero {
+                padding-top: 60px;
+                min-height: 100vh;
+                min-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                overflow: hidden;
+                background:
+                    linear-gradient(180deg,
+                        rgba(185, 28, 28, 0.88) 0%,
+                        rgba(185, 28, 28, 0.78) 40%,
+                        rgba(185, 28, 28, 0.68) 70%,
+                        rgba(185, 28, 28, 0.58) 100%
+                    ),
+                    url('image/manufacturing industry.webp') center center / cover no-repeat;
+            }
+            .hero::after { display: none; }
+            .hero-main { flex: 1; display: flex; align-items: stretch; padding-bottom: 0; }
+            .hero-inner {
+                padding: 0;
+                background: none !important;
+                position: relative;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .hero-inner::before { display: none !important; }
+            .logo-marquee { height: 52px; display: flex; align-items: center; flex-shrink: 0; padding: 4px 0; overflow: hidden; }
+
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                padding: 30px 20px 10px;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                justify-content: space-between;
+            }
+
+            /* Staged hero animations */
+            .hero-subtitle {
+                font-size: 17px;
+                padding: 6px 16px;
+                margin-top: 10px;
+                margin-bottom: 8px;
+                white-space: normal;
+                letter-spacing: 0.1em;
+                align-self: flex-start;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: heroFadeUp 0.6s 0.15s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            }
+            .hero-title {
+                font-size: 27px;
+                font-weight: 900;
+                line-height: 1.35;
+                letter-spacing: 0;
+                margin-bottom: 6px;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: heroFadeUp 0.6s 0.3s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            }
+            .hero-description {
+                font-size: 15px;
+                line-height: 1.6;
+                margin-bottom: 0;
+                display: block;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: heroFadeUp 0.6s 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            }
+
+            /* Glassmorphism stats badge */
+            .hero-stats {
+                flex-direction: row;
+                gap: 0;
+                justify-content: center;
+                margin: 0 0 8px 0;
+                padding: 10px 0;
+                background: rgba(255, 255, 255, 0.14);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                flex-wrap: nowrap;
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+                animation: heroStatsIn 0.7s 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            }
+            @keyframes heroStatsIn {
+                from { opacity: 0; transform: translateY(20px) scale(0.96); }
+                to { opacity: 1; transform: translateY(0) scale(1); }
+            }
+            .stat-item {
+                flex: 1;
+                justify-content: center;
+                padding: 0;
+                text-align: center;
+                gap: 2px;
+                flex-direction: column;
+            }
+            .stat-item:first-child {
+                border-right: 1px solid rgba(255, 255, 255, 0.25);
+            }
+            .stat-laurel { display: none; }
+            .stat-content { text-align: center; }
+            .stat-number { font-size: 32px; line-height: 1; }
+            .stat-number span { font-size: 13px; }
+            .stat-label { font-size: 11px; opacity: 0.9; margin-bottom: 0; font-weight: 500; }
+
+            /* CTA buttons side by side */
+            .hero-cta {
+                flex-direction: row;
+                gap: 8px;
+                margin: 0;
+                padding: 0;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: heroFadeUp 0.6s 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            }
+            .btn-hero {
+                flex: 1;
+                justify-content: center;
+                padding: 10px 8px;
+                font-size: 14px;
+                border-radius: 10px;
+                min-height: 44px;
+            }
+            .btn-hero svg { width: 18px; height: 18px; }
+            .btn-hero-primary {
+                box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+                font-weight: 700;
+            }
+            .btn-hero-phone {
+                background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+                color: #1F2937;
+                flex-direction: column;
+                gap: 1px;
+            }
+            .btn-hero-phone-icon { display: none; }
+            .btn-hero-phone-text { text-align: center; }
+            .btn-hero-phone-number { font-size: 14px; }
+            .btn-hero-phone-label { font-size: 9px; }
+
+            .scroll-hint-mobile {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2px;
+                margin-top: 4px;
+                padding-bottom: 0;
+                color: rgba(255,255,255,0.55);
+                font-size: 11px;
+                opacity: 0;
+                animation: heroFadeUp 0.4s 0.9s ease forwards, bounceDown 2s 1.5s infinite;
+            }
+
+            @keyframes heroFadeUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes bounceDown {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(5px); }
+            }
+            .hero-image { display: none; }
+
+            /* === MARQUEE === */
+            .marquee-item { padding: 0 16px; }
+            .marquee-item img { height: 44px; max-height: 44px; max-width: 140px; }
+
+            /* === SECTIONS GENERAL === */
+            .section { padding: 56px 20px; }
+            .section-header { margin-bottom: 36px; }
+            .section-label { font-size: 13px; letter-spacing: 0.1em; }
+            .section-title { font-size: 22px; line-height: 1.4; }
+            .section-subtitle { font-size: 13px; }
+
+            /* === TRUST NUMBERS (after marquee) === */
+            .trust-numbers {
+                display: block;
+                padding: 32px 16px 28px;
+                background: linear-gradient(180deg, #F8FAFC 0%, #FFF5F5 100%);
+            }
+            .trust-numbers-title {
+                text-align: center;
+                font-size: 20px;
+                font-weight: 900;
+                color: var(--text-primary);
+                letter-spacing: 0.04em;
+                margin-bottom: 20px;
+                position: relative;
+            }
+            .trust-numbers-title::after {
+                content: '';
+                display: block;
+                width: 40px;
+                height: 2px;
+                background: var(--primary);
+                margin: 8px auto 0;
+                border-radius: 1px;
+            }
+            .trust-numbers-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .trust-number-card {
+                background: white;
+                border-radius: 14px;
+                padding: 18px 12px 14px;
+                text-align: center;
+                box-shadow: 0 2px 12px rgba(185, 28, 28, 0.08);
+                border: 1px solid rgba(185, 28, 28, 0.06);
+                position: relative;
+                overflow: hidden;
+            }
+            .trust-number-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 3px;
+                background: var(--primary-gradient);
+            }
+            .trust-number-icon {
+                width: 36px; height: 36px;
+                border-radius: 10px;
+                display: flex; align-items: center; justify-content: center;
+                margin: 0 auto 8px;
+                font-size: 18px;
+            }
+            .trust-number-icon.red { background: #FEF2F2; color: #B91C1C; }
+            .trust-number-icon.green { background: #ECFDF5; color: #059669; }
+            .trust-number-icon.amber { background: #FFFBEB; color: #D97706; }
+            .trust-number-icon.purple { background: #F3E8FF; color: #7C3AED; }
+            .trust-number-value {
+                font-family: 'Poppins', sans-serif;
+                font-size: 28px; font-weight: 800;
+                color: var(--text-primary);
+                line-height: 1.1; margin-bottom: 2px;
+            }
+            .trust-number-value span {
+                font-size: 13px; font-weight: 700;
+                font-family: 'Noto Sans JP', sans-serif;
+            }
+            .trust-number-label {
+                font-size: 11px; color: var(--text-secondary);
+                font-weight: 500; line-height: 1.4;
+            }
+
+            /* === FEATURES (縦スクロール駆動の横スライド) === */
+            #features {
+                padding: 0 !important;
+                background: transparent !important;
+            }
+            .features-scroll-spacer {
+                display: block;
+                position: relative;
+            }
+            .features-sticky {
+                display: block;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                height: 100dvh;
+                overflow: hidden;
+            }
+            .features-sticky .section-header {
+                position: absolute;
+                top: 16px;
+                left: 0; right: 0;
+                z-index: 10;
+                margin-bottom: 0;
+                padding: 0 20px;
+            }
+            .features-sticky .section-header .section-label { font-size: 12px; margin-bottom: 4px; }
+            .features-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
+            .features-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
+            .features-grid {
+                grid-template-columns: 1fr; gap: 0;
+                display: flex !important;
+                position: absolute;
+                top: 0; left: 0;
+                height: 100%;
+                will-change: transform;
+            }
+            .feature-card {
+                min-height: auto;
+                height: 100vh;
+                height: 100dvh;
+                width: 100vw;
+                flex: 0 0 100vw;
+                padding: 100px 24px 40px;
+                border-radius: 0;
+                border: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            /* 全カードに背景色（交互パターン・赤系） */
+            .feature-card:nth-child(1) { background: linear-gradient(180deg, #FEF2F2 0%, #FECACA 100%); }
+            .feature-card:nth-child(2) { background: linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%); }
+            .feature-card:nth-child(3) { background: linear-gradient(180deg, #ECFDF5 0%, #D1FAE5 100%); }
+            .feature-card:nth-child(4) { background: linear-gradient(180deg, #FEF2F2 0%, #FECACA 100%); }
+            .feature-card:nth-child(5) { background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%); }
+            .feature-card:nth-child(6) { background: linear-gradient(180deg, #ECFDF5 0%, #D1FAE5 100%); }
+            .feature-card:hover { transform: none; box-shadow: none; }
+
+            /* つなぎ目：前のカードの色が上から食い込む逆三角 */
+            .feature-card::before {
+                content: '';
+                position: absolute;
+                top: -1px; left: 10%; right: 10%;
+                width: 80%;
+                height: 32px;
+                clip-path: polygon(0 0, 100% 0, 50% 100%);
+                z-index: 2;
+                transform: none !important;
+            }
+            .feature-card:nth-child(1)::before { display: none; }
+            .feature-card:nth-child(2)::before { background: #FECACA; }
+            .feature-card:nth-child(3)::before { background: #FFEDD5; }
+            .feature-card:nth-child(4)::before { background: #D1FAE5; }
+            .feature-card:nth-child(5)::before { background: #FECACA; }
+            .feature-card:nth-child(6)::before { background: #FEF3C7; }
+
+            /* 番号：左上に固定 */
+            .feature-number {
+                position: absolute !important;
+                top: 16px !important;
+                left: 20px !important;
+                right: auto !important;
+                font-size: 56px;
+                color: rgba(185, 28, 28, 0.1);
+                margin-bottom: 0;
+                line-height: 1;
+                font-weight: 900;
+                animation: featureNumFloat 3s ease-in-out infinite;
+            }
+            .feature-card:nth-child(even) .feature-number { animation-delay: 0.5s; }
+            .feature-card:nth-child(3n) .feature-number { animation-delay: 1s; }
+            @keyframes featureNumFloat {
+                0%, 100% { transform: translateY(0) scale(1); }
+                50% { transform: translateY(-5px) scale(1.02); }
+            }
+
+            /* 画像を表示、アイコンを非表示 */
+            .feature-img {
+                display: block;
+                width: 200px; height: 200px;
+                object-fit: contain;
+                margin-bottom: 20px;
+                filter: drop-shadow(0 8px 24px rgba(0,0,0,0.1));
+            }
+            .feature-icon { display: none; }
+
+            .feature-title { font-size: 22px; margin-bottom: 14px; font-weight: 800; line-height: 1.4; }
+            .feature-description { font-size: 15px; line-height: 1.9; max-width: 300px; color: var(--text-secondary); }
+
+            /* 装飾用の円 */
+            .feature-card::after {
+                content: '';
+                position: absolute;
+                width: 200px; height: 200px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.4);
+                z-index: 0;
+            }
+            .feature-card:nth-child(1)::after { top: -60px; right: -60px; }
+            .feature-card:nth-child(2)::after { bottom: -80px; left: -60px; width: 250px; height: 250px; }
+            .feature-card:nth-child(3)::after { top: -40px; left: -80px; width: 180px; height: 180px; }
+            .feature-card:nth-child(4)::after { bottom: -60px; right: -40px; width: 220px; height: 220px; }
+            .feature-card:nth-child(5)::after { top: -50px; right: -50px; width: 160px; height: 160px; }
+            .feature-card:nth-child(6)::after { bottom: -70px; left: -70px; width: 240px; height: 240px; }
+            .feature-card > * { position: relative; z-index: 1; }
+
+            /* Feature progress dots */
+            .feature-progress {
+                display: flex;
+                position: fixed;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+                z-index: 900;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+            .feature-progress.show { opacity: 1; }
+            .feature-progress-dot {
+                width: 10px; height: 10px;
+                border-radius: 50%;
+                background: rgba(185, 28, 28, 0.2);
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            .feature-progress-dot.active {
+                background: var(--primary);
+                width: 12px; height: 12px;
+                box-shadow: 0 0 8px rgba(185, 28, 28, 0.5);
+            }
+            .feature-progress-dot.passed {
+                background: var(--primary);
+                width: 10px; height: 10px;
+            }
+            .feature-progress-label {
+                font-size: 10px; font-weight: 700;
+                color: var(--primary);
+                writing-mode: vertical-rl;
+                letter-spacing: 0.1em;
+                margin-bottom: 4px;
+            }
+            .feature-progress-count {
+                font-size: 11px; font-weight: 800;
+                color: var(--primary);
+                font-family: 'Poppins', sans-serif;
+            }
+
+            /* === MINI CTA === */
+            .mini-cta-mobile {
+                display: block;
+                padding: 36px 20px;
+                background: linear-gradient(180deg, #FFF5F5 0%, #FEE2E2 100%);
+                text-align: center;
+            }
+            .mini-cta-title {
+                font-size: 18px; font-weight: 800;
+                color: var(--text-primary);
+                margin-bottom: 6px;
+            }
+            .mini-cta-sub {
+                font-size: 13px; color: var(--text-secondary);
+                margin-bottom: 16px;
+            }
+            .mini-cta-buttons {
+                display: flex; flex-direction: column; gap: 10px;
+            }
+            .mini-cta-buttons .btn {
+                width: 100%; min-height: 48px;
+                font-size: 14px; font-weight: 700;
+                border-radius: 10px;
+                justify-content: center;
+            }
+
+            /* === PROBLEM / SOLUTION === */
+            .problem-grid { grid-template-columns: 1fr; gap: 32px; }
+            .section-dark .section-title { font-size: 22px; text-align: center; }
+            .section-dark .section-label { text-align: center; display: block; }
+            .problem-text { font-size: 15px; }
+            .solution-card { padding: 28px 20px; border-radius: 16px; }
+            .solution-title { font-size: 20px; }
+
+            /* === DOWNLOAD CTA === */
+            .download-cta-inner { flex-direction: column; gap: 24px; text-align: center; }
+            .download-cta-image { flex: 0 0 auto; max-width: 240px; margin: 0 auto; }
+            .download-cta-title { font-size: 20px; }
+
+            /* === CASES (縦スクロール駆動の横スライド) === */
+            #cases {
+                padding: 0 !important;
+            }
+            .cases-scroll-spacer {
+                display: block;
+                position: relative;
+            }
+            .cases-sticky {
+                display: block;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                height: 100dvh;
+                overflow: hidden;
+            }
+            .cases-sticky .section-header {
+                position: absolute;
+                top: 16px;
+                left: 0; right: 0;
+                z-index: 10;
+                margin-bottom: 0;
+                padding: 0 20px;
+            }
+            .cases-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
+            .cases-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
+            .cases-grid {
+                display: flex !important;
+                position: absolute;
+                top: 0; left: 0;
+                height: 100%;
+                will-change: transform;
+                gap: 0;
+                padding: 0;
+                margin: 0;
+                overflow: visible;
+            }
+            .cases-grid::-webkit-scrollbar { display: none; }
+            .case-card {
+                flex: 0 0 85vw;
+                margin: 0 2.5vw;
+                height: auto;
+                align-self: center;
+            }
+            .case-card:first-child { margin-left: 7.5vw; }
+            .case-card:last-child { margin-right: 7.5vw; }
+            .cases-scroll-bar {
+                display: block;
+                position: absolute;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                width: 60%;
+                max-width: 200px;
+                height: 3px;
+                background: rgba(0,0,0,0.1);
+                border-radius: 3px;
+                margin: 0 auto 20px;
+                position: relative;
+                overflow: hidden;
+            }
+            .cases-scroll-bar-thumb {
+                position: absolute;
+                top: 0; left: 0;
+                height: 100%;
+                width: 30%;
+                background: var(--primary);
+                border-radius: 3px;
+                transition: left 0.15s ease;
+            }
+            .case-title { font-size: 17px; }
+            .case-description { font-size: 14px; }
+
+            /* === PROCESS VERTICAL TIMELINE === */
+            .process-container { padding: 32px 20px; border-radius: 16px; }
+            .process-steps {
+                flex-direction: column;
+                gap: 0;
+                align-items: stretch;
+            }
+            .process-steps::before { display: none; }
+            .process-step {
+                flex: none;
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                text-align: left;
+                padding: 16px 0;
+                position: relative;
+            }
+            .process-step:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                left: 28px;
+                top: 72px;
+                bottom: -4px;
+                width: 2px;
+                background: linear-gradient(to bottom, var(--primary), rgba(185,28,28,0.2));
+            }
+            .process-number {
+                width: 56px; height: 56px;
+                font-size: 20px;
+                margin: 0;
+                flex-shrink: 0;
+            }
+            .process-step-content { flex: 1; padding-top: 4px; }
+            .process-title { font-size: 16px; margin-bottom: 4px; text-align: left; }
+            .process-description { font-size: 13px; max-width: none; margin: 0; text-align: left; }
+
+            /* === CTA SECTION === */
+            .cta-section { padding: 60px 16px; }
+            .cta-title { font-size: 24px; }
+            .cta-buttons { flex-direction: column; }
+            .cta-buttons .btn { width: 100%; }
+            .cta-phone-number { font-size: 22px; }
+
+            /* === FOOTER === */
+            .footer { padding: 48px 16px 24px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+            /* === FLOATING UI === */
+            .floating-cta-bar-inner { flex-direction: column; text-align: center; gap: 12px; }
+            .floating-cta-bar-text { font-size: 13px; }
+            .floating-cta-bar-buttons { width: 100%; }
+            .btn-bar { flex: 1; text-align: center; }
+            .floating-chat { bottom: 70px; right: 16px; }
+            .floating-chat-btn { width: 48px; height: 48px; }
+            .cta-popup { bottom: 80px; right: 16px; left: 16px; }
+            .cta-popup-card { width: 100%; }
+            .cta-popup-top { flex-direction: column; }
+            .cta-popup-image { flex: 0 0 auto; }
+            .cta-popup-image img { height: 120px; width: 100%; object-fit: cover; }
+            .floating-mini { bottom: 80px; right: 16px; }
+
+            /* Mobile floating buttons */
+            .mobile-floating-buttons {
+                display: flex;
+                position: fixed;
+                bottom: 16px;
+                right: 16px;
+                flex-direction: column;
+                gap: 10px;
+                z-index: 998;
+            }
+            .mobile-float-btn {
+                width: 52px; height: 52px;
+                border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+                border: none; cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+            }
+            .mobile-float-btn:hover { transform: scale(1.1); }
+            .mobile-float-phone { background: #10B981; color: white; }
+            .mobile-float-mail { background: var(--primary-gradient); color: white; }
+        }
+        @media (max-width: 375px) {
+            .hero-subtitle { font-size: 17px; padding: 6px 12px; }
+            .hero-title { font-size: 33px; }
+            .section-title { font-size: 22px; }
+            .cta-title { font-size: 22px; }
+            .btn-hero-phone-number { font-size: 16px; }
+        }
+        body.has-floating-bar { padding-bottom: 70px; }
+        @media (max-width: 768px) { body.has-floating-bar { padding-bottom: 100px; } }
+
+    </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9QKFBZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+<header class="header" id="header">
+    <div class="header-inner">
+        <a href="https://scan-pro.jp/" class="logo">
+            <img src="image/logo_header.png" alt="スキャンPro">
+        </a>
+        <div class="header-actions">
+            <a href="https://scan-pro.jp/useful-info/" class="nav-link-header">お役立ち情報</a>
+            <a href="tel:052-842-9697" class="phone-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                052-842-9697
+            </a>
+            <a href="#" onclick="openDownloadModal('スキャンPro サービス資料'); return false;" class="btn btn-header-outline">資料ダウンロード</a>
+            <a href="#" onclick="openContactModal(); return false;" class="btn btn-header-primary">お問い合わせ</a>
+        </div>
+        <div class="mobile-header-actions">
+            <a href="#" onclick="openContactModal(); return false;" class="mobile-cta-btn">お問い合わせ</a>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#features">選ばれる理由</a>
+        <a href="#cases">導入事例</a>
+        <a href="#process">ご利用の流れ</a>
+        <a href="#" onclick="openDownloadModal('スキャンPro サービス資料'); return false;">資料ダウンロード</a>
+        <a href="#" onclick="openContactModal(); return false;">お問い合わせ</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-main">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <p class="hero-subtitle">書類電子化・スキャニングサービス</p>
+                <h1 class="hero-title">紙の書類を<br>「探せる・使える」<br>データに変える</h1>
+                <p class="hero-description">高品質スキャン＋OCR加工で検索可能に<br>大判図面から契約書まで、あらゆる原稿に対応</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-laurel">🏆</span>
+                        <div class="stat-content">
+                            <p class="stat-label">取引企業数</p>
+                            <p class="stat-number">1,000<span>社+</span></p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-laurel">🏆</span>
+                        <div class="stat-content">
+                            <p class="stat-label">累計スキャン実績</p>
+                            <p class="stat-number">10<span>億枚+</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#" onclick="openContactModal(); return false;" class="btn-hero btn-hero-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        無料で相談する
+                    </a>
+                    <a href="tel:052-842-9697" class="btn-hero btn-hero-phone">
+                        <div class="btn-hero-phone-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="btn-hero-phone-text">
+                            <span class="btn-hero-phone-label">お電話でのお問い合わせ</span>
+                            <span class="btn-hero-phone-number">052-842-9697</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="scroll-hint-mobile">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    スクロールして詳しく
+                </div>
+
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="image/manufacturing industry.webp" alt="スキャンPro サービスイメージ" class="hero-image-main">
+                    <img src="image/professor.webp" alt="研究機関での活用" class="hero-image-secondary">
+                        <div class="hero-image-float-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logo-marquee">
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <div class="marquee-item"><img src="image/JAXA_j.jpg" alt="JAXA"></div>
+                <div class="marquee-item"><img src="image/toyozidou_j.jpg" alt="豊田自動織機"></div>
+                <div class="marquee-item"><img src="image/simizu_j.jpg" alt="清水建設"></div>
+                <div class="marquee-item"><img src="image/NTTD_j.jpg" alt="NTT DATA"></div>
+                <div class="marquee-item"><img src="image/riku_j.jpg" alt="リクルート"></div>
+                <div class="marquee-item"><img src="image/ロート.jpg" alt="ロート製薬"></div>
+                <div class="marquee-item"><img src="image/tokyod_j.jpg" alt="東京大学"></div>
+                <div class="marquee-item"><img src="image/osaka-university-logo-vector.png" alt="大阪大学"></div>
+                <div class="marquee-item"><img src="image/nagoya_j.jpg" alt="名古屋大学"></div>
+                <div class="marquee-item"><img src="image/fujitada_b_j.jpg" alt="藤田医科大学"></div>
+                <div class="marquee-item"><img src="image/kubota_j.jpg" alt="クボタ"></div>
+                <div class="marquee-item"><img src="image/keiougo_b_j.jpg" alt="慶應義塾大学"></div>
+                <div class="marquee-item"><img src="image/cane_j.jpg" alt="シャネル"></div>
+                <div class="marquee-item"><img src="image/toda_j.jpg" alt="戸田建設"></div>
+                <div class="marquee-item"><img src="image/aoyama_j.jpg" alt="青山学院大学"></div>
+                <div class="marquee-item"><img src="image/meizi_j.jpg" alt="明治大学"></div>
+                <div class="marquee-item"><img src="image/koube-e1688953632986.jpg" alt="神戸大学"></div>
+                <div class="marquee-item"><img src="image/shizuoka-e1688953469668.jpg" alt="静岡大学"></div>
+                <div class="marquee-item"><img src="image/hitotu_j.jpg" alt="一橋大学"></div>
+                <div class="marquee-item"><img src="image/kitoudai_j.jpg" alt="北海道大学"></div>
+                <div class="marquee-item"><img src="image/JAXA_j.jpg" alt="JAXA"></div>
+                <div class="marquee-item"><img src="image/toyozidou_j.jpg" alt="豊田自動織機"></div>
+                <div class="marquee-item"><img src="image/simizu_j.jpg" alt="清水建設"></div>
+                <div class="marquee-item"><img src="image/NTTD_j.jpg" alt="NTT DATA"></div>
+                <div class="marquee-item"><img src="image/riku_j.jpg" alt="リクルート"></div>
+                <div class="marquee-item"><img src="image/ロート.jpg" alt="ロート製薬"></div>
+                <div class="marquee-item"><img src="image/tokyod_j.jpg" alt="東京大学"></div>
+                <div class="marquee-item"><img src="image/osaka-university-logo-vector.png" alt="大阪大学"></div>
+                <div class="marquee-item"><img src="image/nagoya_j.jpg" alt="名古屋大学"></div>
+                <div class="marquee-item"><img src="image/fujitada_b_j.jpg" alt="藤田医科大学"></div>
+                <div class="marquee-item"><img src="image/kubota_j.jpg" alt="クボタ"></div>
+                <div class="marquee-item"><img src="image/keiougo_b_j.jpg" alt="慶應義塾大学"></div>
+                <div class="marquee-item"><img src="image/cane_j.jpg" alt="シャネル"></div>
+                <div class="marquee-item"><img src="image/toda_j.jpg" alt="戸田建設"></div>
+                <div class="marquee-item"><img src="image/aoyama_j.jpg" alt="青山学院大学"></div>
+                <div class="marquee-item"><img src="image/meizi_j.jpg" alt="明治大学"></div>
+                <div class="marquee-item"><img src="image/koube-e1688953632986.jpg" alt="神戸大学"></div>
+                <div class="marquee-item"><img src="image/shizuoka-e1688953469668.jpg" alt="静岡大学"></div>
+                <div class="marquee-item"><img src="image/hitotu_j.jpg" alt="一橋大学"></div>
+                <div class="marquee-item"><img src="image/kitoudai_j.jpg" alt="北海道大学"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mobile: Trust Numbers -->
+<div class="trust-numbers">
+    <h2 class="trust-numbers-title">選ばれ続ける実績</h2>
+    <div class="trust-numbers-grid">
+        <div class="trust-number-card">
+            <div class="trust-number-icon red">&#x1F3C6;</div>
+            <div class="trust-number-value">1,000<span>社+</span></div>
+            <div class="trust-number-label">取引企業数</div>
+        </div>
+        <div class="trust-number-card">
+            <div class="trust-number-icon green">&#x1F4C4;</div>
+            <div class="trust-number-value">10<span>億枚+</span></div>
+            <div class="trust-number-label">累計スキャン実績</div>
+        </div>
+        <div class="trust-number-card">
+            <div class="trust-number-icon amber">&#x26A1;</div>
+            <div class="trust-number-value">10<span>万枚/日</span></div>
+            <div class="trust-number-label">1日の処理能力</div>
+        </div>
+        <div class="trust-number-card">
+            <div class="trust-number-icon purple">&#x1F512;</div>
+            <div class="trust-number-value">100<span>%</span></div>
+            <div class="trust-number-label">社内加工で安心</div>
+        </div>
+    </div>
+</div>
+
+<section class="section section-cream" id="features">
+    <div class="features-scroll-spacer" id="featuresScrollSpacer">
+    <div class="features-sticky" id="featuresSticky">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Features</span>
+            <h2 class="section-title">スキャンProが選ばれる理由</h2>
+            <p class="section-subtitle">価格・品質・対応力。すべてにおいて妥協しない、プロフェッショナルな電子化サービスです。</p>
+        </div>
+        <div class="features-grid" id="featuresGrid">
+            <div class="feature-card fade-in">
+                <span class="feature-number">01</span>
+                <img src="image/b2b-feature-01-cost.webp" alt="コストパフォーマンス" class="feature-img">
+                <div class="feature-icon primary"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+                <h3 class="feature-title">圧倒的なコストパフォーマンス</h3>
+                <p class="feature-description">書類1枚から対応可能。相見積もりに入れていただければ価格差に驚かれるはずです。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-number">02</span>
+                <img src="image/b2b-feature-02-speed.webp" alt="スピード対応" class="feature-img">
+                <div class="feature-icon yellow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                <h3 class="feature-title">最短24時間〜長期案件まで</h3>
+                <p class="feature-description">お急ぎの案件から数ヶ月かけた計画的な電子化まで対応。1日10万枚の処理能力。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-number">03</span>
+                <img src="image/b2b-feature-03-ocr.webp" alt="高精度OCR" class="feature-img">
+                <div class="feature-icon green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
+                <h3 class="feature-title">高精度OCRで「検索可能」に</h3>
+                <p class="feature-description">多言語対応の高精度OCR加工で、テキスト検索が可能なPDFに。探す時間を大幅に削減。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-number">04</span>
+                <img src="image/b2b-feature-04-document.webp" alt="あらゆる原稿に対応" class="feature-img">
+                <div class="feature-icon primary"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
+                <h3 class="feature-title">A0大判から特殊原稿まで</h3>
+                <p class="feature-description">10機種30台以上の業務用スキャナーで、図面・契約書・書籍など、あらゆる原稿に対応。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-number">05</span>
+                <img src="image/b2b-feature-05-security.webp" alt="セキュリティ万全" class="feature-img">
+                <div class="feature-icon yellow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                <h3 class="feature-title">セキュリティ万全の社内加工</h3>
+                <p class="feature-description">すべての加工を自社内で完結。外部委託や海外加工は一切行わず、機密情報を安全に管理。</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-number">06</span>
+                <img src="image/b2b-feature-06-customize.webp" alt="柔軟なカスタマイズ" class="feature-img">
+                <div class="feature-icon green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                <h3 class="feature-title">柔軟なカスタマイズ対応</h3>
+                <p class="feature-description">ファイル名・フォルダ構成・解像度など、業務に最適な形式で納品。難しい要望も100%実現。</p>
+            </div>
+        </div>
+    </div>
+    </div><!-- /.features-sticky -->
+    </div><!-- /.features-scroll-spacer -->
+</section>
+
+<!-- Mobile: Mini CTA -->
+<div class="mini-cta-mobile">
+    <h3 class="mini-cta-title">まずは無料でご相談</h3>
+    <p class="mini-cta-sub">お見積り・テストスキャンまで無料です</p>
+    <div class="mini-cta-buttons">
+        <a href="#" onclick="openContactModal(); return false;" class="btn btn-primary">お問い合わせ・お見積り</a>
+        <a href="#" onclick="openDownloadModal('スキャンPro サービス資料'); return false;" class="btn btn-outline">資料ダウンロード</a>
+    </div>
+</div>
+
+<section class="section section-dark">
+    <div class="section-inner">
+        <div class="problem-grid">
+            <div class="problem-content fade-in">
+                <span class="section-label" style="color: var(--accent-yellow);">こんなお悩みありませんか？</span>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 32px;">紙書類の管理に<br>限界を感じていませんか</h2>
+                <ul class="problem-list">
+                    <li class="problem-item"><div class="problem-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg></div><span class="problem-text">古い図面や契約書が紙で山積み。探すのに何時間もかかる</span></li>
+                    <li class="problem-item"><div class="problem-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div><span class="problem-text">担当者しか場所がわからず、属人化が進んでいる</span></li>
+                    <li class="problem-item"><div class="problem-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></div><span class="problem-text">保管スペースが足りない、紙の劣化も心配</span></li>
+                    <li class="problem-item"><div class="problem-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><span class="problem-text">自社でスキャンする時間も人手も足りない</span></li>
+                </ul>
+            </div>
+            <div class="solution-card fade-in">
+                <span class="solution-badge">スキャンProの解決策</span>
+                <h3 class="solution-title">すべてお任せください</h3>
+                <ul class="solution-list">
+                    <li class="solution-item"><div class="solution-check">✓</div><span>高精度OCRで「探せる」データに変換</span></li>
+                    <li class="solution-item"><div class="solution-check">✓</div><span>整理されたフォルダ構成で誰でも使える</span></li>
+                    <li class="solution-item"><div class="solution-check">✓</div><span>クラウド・サーバーで一元管理が可能に</span></li>
+                    <li class="solution-item"><div class="solution-check">✓</div><span>原本を傷めない非破壊スキャンにも対応</span></li>
+                    <li class="solution-item"><div class="solution-check">✓</div><span>大量案件も丸ごとお任せ</span></li>
+                </ul>
+                <div style="margin-top: 28px;">
+                    <a href="#" onclick="openContactModal(); return false;" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">まずは無料で見積もりを依頼する</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section download-cta-section">
+    <div class="section-inner">
+        <div class="download-cta-inner fade-in">
+            <div class="download-cta-image">
+                <img src="image/case study.webp" alt="業界別導入事例資料">
+            </div>
+            <div class="download-cta-content">
+                <div class="download-cta-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>無料ダウンロード</div>
+                <h2 class="download-cta-title">各業界でどのようにご活用いただいたか、<br>業界別で資料にまとめました</h2>
+                <p class="download-cta-description">製造業・化学メーカー・工事会社・大学など、様々な業界でご活用いただいております。各業界でのスキャンProの活用事例を掲載しています。それぞれの業界でどのように活用いただいたか、ご参考いただけます。</p>
+                <a href="#" onclick="openDownloadModal('スキャンPro 業界別導入事例資料'); return false;" class="btn btn-white btn-lg"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>資料をダウンロード</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="cases">
+    <div class="cases-scroll-spacer" id="casesScrollSpacer">
+    <div class="cases-sticky" id="casesSticky">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Case Studies</span>
+            <h2 class="section-title">業界別 導入事例</h2>
+            <p class="section-subtitle">製造業・化学メーカー・工事会社・大学など、幅広い業界でご活用いただいています。</p>
+        </div>
+        <div class="cases-scroll-bar"><div class="cases-scroll-bar-thumb"></div></div>
+        <div class="cases-grid" id="casesGrid">
+            <div class="case-card fade-in">
+                <div class="case-image"><img src="image/manufacturing industry.webp" alt="製造業事例"></div>
+                <div class="case-content">
+                    <span class="case-badge">製造業</span>
+                    <h3 class="case-title">完成図書の電子化で「探す時間」と「属人化」を削減</h3>
+                    <p class="case-description">A0〜A4までサイズ混在の完成図書を一括電子化。図番・工事名単位のフォルダ設計とOCR加工で、検索時間を大幅に短縮。</p>
+                    <div class="case-results">
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>検索時間の大幅短縮</div>
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>複数拠点で即共有</div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card fade-in">
+                <div class="case-image"><img src="image/chemical manufacturer.webp" alt="化学メーカー事例"></div>
+                <div class="case-content">
+                    <span class="case-badge">化学メーカー</span>
+                    <h3 class="case-title">契約書を裁断せずに電子化 原本を守りながらDXを実現</h3>
+                    <p class="case-description">非破壊スキャンで原本を保持したまま電子化。OCR加工で契約条件を即時検索可能に。監査対応も効率化。</p>
+                    <div class="case-results">
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>原本劣化を防止</div>
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>法務負担を軽減</div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card fade-in">
+                <div class="case-image"><img src="image/electrical equipment.webp" alt="工事会社事例"></div>
+                <div class="case-content">
+                    <span class="case-badge">電気・設備工事</span>
+                    <h3 class="case-title">大判図面の電子化で現場と事務所の情報格差をなくす</h3>
+                    <p class="case-description">A1・A0図面を高精度スキャン。折り跡・劣化を考慮した補正で、タブレットでも細部まで判読可能なデータに。</p>
+                    <div class="case-results">
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>タブレットで確認可能</div>
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>過去図面を有効活用</div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card fade-in">
+                <div class="case-image"><img src="image/professor.webp" alt="大学・研究機関事例"></div>
+                <div class="case-content">
+                    <span class="case-badge">大学・研究機関</span>
+                    <h3 class="case-title">専門書・資料をデータ化し「研究効率」を大幅に向上</h3>
+                    <p class="case-description">専門書・論文・研究資料を高解像度で電子化。OCR加工で必要な情報にすぐアクセス。研究室・自宅など複数環境で利用可能に。</p>
+                    <div class="case-results">
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>検索で即アクセス</div>
+                        <div class="case-result-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>資料管理が容易に</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div><!-- /.cases-sticky -->
+    </div><!-- /.cases-scroll-spacer -->
+</section>
+
+<section class="section section-cream" id="process">
+    <div class="section-inner">
+        <div class="section-header">
+            <span class="section-label">Process</span>
+            <h2 class="section-title">ご利用の流れ</h2>
+            <p class="section-subtitle">ヒアリングからお見積り・テストスキャンまで無料。安心してお任せください。</p>
+        </div>
+        <div class="process-container fade-in">
+            <div class="process-steps">
+                <div class="process-step"><div class="process-number">1</div><div class="process-step-content"><h3 class="process-title">お問い合わせ</h3><p class="process-description">電話・メールでお気軽にご相談ください</p></div></div>
+                <div class="process-step"><div class="process-number">2</div><div class="process-step-content"><h3 class="process-title">お見積り</h3><p class="process-description">原稿に合わせた最適なプランをご提案</p></div></div>
+                <div class="process-step"><div class="process-number">3</div><div class="process-step-content"><h3 class="process-title">テストスキャン</h3><p class="process-description">無料でサンプル加工を実施</p></div></div>
+                <div class="process-step"><div class="process-number">4</div><div class="process-step-content"><h3 class="process-title">納品</h3><p class="process-description">ご指定の形式でデータを納品</p></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section cta-section" id="contact">
+    <div class="section-inner cta-content">
+        <h2 class="cta-title">まずは無料でご相談ください</h2>
+        <p class="cta-description">現状の課題ヒアリングから、お見積り・テストスキャンまで無料で承ります。</p>
+        <div class="cta-buttons">
+            <a href="#" onclick="openContactModal(); return false;" class="btn btn-white btn-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>お問い合わせ</a>
+            <a href="#" onclick="openDownloadModal('スキャンPro サービス資料'); return false;" class="btn btn-ghost btn-xl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>資料ダウンロード</a>
+        </div>
+        <div class="cta-phone">
+            <span class="cta-phone-label">お電話でのお問い合わせ</span>
+            <a href="tel:052-842-9697" class="cta-phone-number"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>052-842-9697</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo"><a href="https://scan-pro.jp/" style="text-decoration: none;"><img src="image/logo_header.png" alt="スキャンPro"></a></div>
+                <p class="footer-description">高品質スキャニングサービス<br>株式会社エレキテル<br>〒458-0044 愛知県名古屋市緑区池上台2丁目21番地</p>
+            </div>
+            <div>
+                <h4 class="footer-heading">サービス</h4>
+                <ul class="footer-links">
+                    <li><a href="https://scan-pro.jp/">スキャニングについて</a></li>
+                    <li><a href="https://scan-pro.jp/price/">料金のご案内</a></li>
+                    <li><a href="https://scan-pro.jp/">導入事例</a></li>
+                    <li><a href="https://scan-pro.jp/">よくある質問</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">お問い合わせ</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="openContactModal(); return false;">お見積り依頼</a></li>
+                    <li><a href="#" onclick="openContactModal(); return false;">お問い合わせ</a></li>
+                    <li><a href="#" onclick="openDownloadModal('スキャンPro サービス資料'); return false;">資料ダウンロード</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">会社情報</h4>
+                <ul class="footer-links">
+                    <li><a href="https://scan-pro.jp/">会社概要</a></li>
+                    <li><a href="https://scan-pro.jp/privacy-policy/">プライバシーポリシー</a></li>
+                    <li><a href="https://scan-pro.jp/rule/">利用規約</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p class="footer-copyright">© 2026 株式会社エレキテル All Rights Reserved.</p></div>
+    </div>
+</footer>
+
+<div class="cta-popup" id="ctaPopup">
+    <div class="cta-popup-card">
+        <button class="cta-popup-close" onclick="closePopup()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        <div class="cta-popup-top">
+            <div class="cta-popup-top-text">
+                <div class="cta-popup-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>3分でわかる資料</div>
+                <h3 class="cta-popup-title">スキャンProの<br>サービス資料をプレゼント</h3>
+                <p class="cta-popup-description">料金・導入事例・対応範囲など、サービスの全体像がわかる資料をお送りします。</p>
+            </div>
+            <div class="cta-popup-image"><img src="image/service_doc.webp" alt="スキャンPro サービス資料"></div>
+        </div>
+        <div class="cta-popup-buttons">
+            <a href="#" onclick="closePopup(); openDownloadModal('スキャンPro サービス資料'); return false;" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>無料で資料をダウンロード</a>
+            <a href="#" onclick="closePopup(); openContactModal(); return false;" class="btn btn-outline">お問い合わせ</a>
+        </div>
+        <div class="cta-popup-phone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:052-842-9697">052-842-9697</a></div>
+    </div>
+</div>
+
+<!-- Mobile: Feature Progress Dots -->
+<div class="feature-progress" id="featureProgress">
+    <span class="feature-progress-label">特徴</span>
+    <div class="feature-progress-dot active" data-index="0"></div>
+    <div class="feature-progress-dot" data-index="1"></div>
+    <div class="feature-progress-dot" data-index="2"></div>
+    <div class="feature-progress-dot" data-index="3"></div>
+    <div class="feature-progress-dot" data-index="4"></div>
+    <div class="feature-progress-dot" data-index="5"></div>
+    <span class="feature-progress-count">1/6</span>
+</div>
+
+<div class="floating-mini hidden" id="floatingMini">
+    <a href="tel:052-842-9697" class="floating-btn floating-phone" title="電話でお問い合わせ"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+    <button class="floating-btn floating-mail" title="お問い合わせ" onclick="openContactModal()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></button>
+</div>
+
+<div class="floating-cta-bar" id="floatingCtaBar">
+    <div class="floating-cta-bar-inner">
+        <p class="floating-cta-bar-text">機能や具体的な活用事例がわかる資料はこちらからダウンロードできます</p>
+        <div class="floating-cta-bar-buttons">
+            <a href="#" onclick="openDownloadModal('スキャンPro サービス資料'); return false;" class="btn-bar btn-bar-primary">資料ダウンロード</a>
+            <a href="#" onclick="openContactModal(); return false;" class="btn-bar btn-bar-secondary">見積依頼をする</a>
+        </div>
+        <button class="floating-cta-bar-close" onclick="closeFloatingBar()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+</div>
+
+<div class="floating-chat">
+    <button class="floating-chat-btn" onclick="openContactModal()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></button>
+</div>
+
+<script>
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
+const ctaPopup = document.getElementById('ctaPopup');
+const floatingMini = document.getElementById('floatingMini');
+let popupShown = false, popupClosed = false;
+function showPopup() { if (!popupShown && !popupClosed) { ctaPopup.classList.add('show'); floatingMini.classList.add('hidden'); popupShown = true; } }
+function closePopup() { ctaPopup.classList.remove('show'); floatingMini.classList.remove('hidden'); popupClosed = true; }
+function openPopup() { ctaPopup.classList.add('show'); floatingMini.classList.add('hidden'); }
+window.addEventListener('scroll', () => { if ((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100 > 60) showPopup(); });
+setTimeout(showPopup, 25000);
+const floatingCtaBar = document.getElementById('floatingCtaBar');
+let barShown = false, barClosed = false;
+function showFloatingBar() { if (!barShown && !barClosed && window.innerWidth > 768) { floatingCtaBar.classList.add('show'); document.body.classList.add('has-floating-bar'); barShown = true; } }
+function closeFloatingBar() { floatingCtaBar.classList.remove('show'); document.body.classList.remove('has-floating-bar'); barClosed = true; }
+window.addEventListener('scroll', () => { if ((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100 > 50) showFloatingBar(); });
+setTimeout(showFloatingBar, 20000);
+function openChat() { openContactModal(); }
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+    });
+});
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Mobile nav toggle
+function toggleMobileNav() {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mobileNav');
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('show');
+}
+document.getElementById('mobileNav').querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('hamburgerBtn').classList.remove('active');
+        document.getElementById('mobileNav').classList.remove('show');
+    });
+});
+
+// Feature horizontal scroll driven by vertical scroll
+if (window.innerWidth <= 768) {
+    const spacer = document.getElementById('featuresScrollSpacer');
+    const sticky = document.getElementById('featuresSticky');
+    const grid = document.getElementById('featuresGrid');
+    const featureCards = document.querySelectorAll('#features .feature-card');
+    const progressEl = document.getElementById('featureProgress');
+    const dots = progressEl ? progressEl.querySelectorAll('.feature-progress-dot') : [];
+    const countEl = progressEl ? progressEl.querySelector('.feature-progress-count') : null;
+    const numCards = featureCards.length;
+
+    if (spacer && grid && numCards > 0) {
+        // スペーサーの高さ = カード枚数 × 100vh（スクロール領域を確保）
+        spacer.style.height = (numCards * 100) + 'vh';
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    const rect = spacer.getBoundingClientRect();
+                    const spacerH = spacer.offsetHeight;
+                    const viewH = window.innerHeight;
+                    // スクロール進捗: 0（先頭）〜 1（末尾）
+                    const scrolled = -rect.top;
+                    const maxScroll = spacerH - viewH;
+                    const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+                    // 横方向のトランスレート
+                    const totalWidth = numCards * window.innerWidth;
+                    const translateX = progress * (totalWidth - window.innerWidth);
+                    grid.style.transform = 'translateX(' + (-translateX) + 'px)';
+
+                    // プログレスドット更新
+                    const activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
+                    if (progressEl) {
+                        // セクションが画面内にあるときだけ表示
+                        const inView = rect.top < viewH && rect.bottom > 0;
+                        progressEl.classList.toggle('show', inView);
+                    }
+                    dots.forEach(function(dot, i) {
+                        dot.classList.remove('active', 'passed');
+                        if (i === activeIdx) dot.classList.add('active');
+                        else if (i < activeIdx) dot.classList.add('passed');
+                    });
+                    if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+}
+</script>
+</div>
+
+<!-- ============================================
+     お問い合わせ・見積もりモーダル
+     ============================================ -->
+<div class="modal-overlay" id="contactModal">
+    <div class="modal-container">
+        <div class="modal-header" style="background-color:#dc2626;padding:20px 24px;">
+            <h2 style="margin:0;font-size:1.15rem;font-weight:700;color:#fff;">ご相談やお見積り依頼はこちらへ入力ください</h2>
+            <button class="modal-close-btn" onclick="closeContactModal()" style="color:#333;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <div style="background-color:#fff;padding:12px 24px;font-size:0.85rem;color:#555;line-height:1.6;border-bottom:1px solid #e5e7eb;">ご相談ベースでも構いませんので、お気軽にご相談ください。<br>担当が内容を確認し、折り返しご連絡いたします</div>
+        <div class="modal-body">
+            <!-- フォーム本体 -->
+            <div id="contactFormContent">
+                                <div id="contactErrors" class="form-errors-summary" style="display:none;"></div>
+                <form onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <label class="form-label">会社名<span class="required">*</span> <span style="font-size: 11px; color: #888; font-weight: normal; margin-left: 4px;">個人の方はお名前を記載ください</span></label>
+                        <input type="text" class="form-input" id="contactCompany" placeholder="例：株式会社エレキテル">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">氏名<span class="required">*</span></label>
+                        <input type="text" class="form-input" id="contactName" placeholder="例：山田 太郎">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス<span class="required">*</span></label>
+                        <input type="email" class="form-input" id="contactEmail" placeholder="例：info@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">電話番号<span class="required">*</span></label>
+                        <input type="tel" class="form-input" id="contactPhone" placeholder="例：052-842-9697">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">お問い合わせ内容</label>
+                        <textarea class="form-textarea" id="contactFreeText" rows="5" placeholder="ご質問・ご要望などをご記入ください"></textarea>
+                    </div>
+                    <div class="privacy-agree">
+                        <div class="form-checkbox-row" style="margin-bottom:0;">
+                            <input type="checkbox" id="contactPrivacy">
+                            <label for="contactPrivacy"><a href="https://scan-pro.jp/privacy/" target="_blank">プライバシーポリシー</a>に同意する</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="form-submit-btn" id="contactSubmitBtn">送信する</button>
+                </form>
+            </div>
+            <!-- 送信成功画面 -->
+            <div id="contactSuccess" class="form-success" style="display:none;">
+                <div class="form-success-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h3>送信が完了しました</h3>
+                <p>お問い合わせありがとうございます。<br>確認メールをお送りしましたのでご確認ください。<br>担当より折り返しご連絡いたします。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================
+     資料ダウンロードモーダル
+     ============================================ -->
+<div class="modal-overlay" id="downloadModal">
+    <div class="modal-container" style="max-width: 480px;">
+        <div class="modal-header" style="background-color:#dc2626;padding:20px 24px;">
+            <h2 style="margin:0;font-size:1.15rem;font-weight:700;color:#fff;">資料ダウンロードはこちらから</h2>
+            <button class="modal-close-btn" onclick="closeDownloadModal()" style="color:#333;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+                <div class="modal-body">
+            <!-- フォーム本体 -->
+            <div id="downloadFormContent">
+                <p style="font-size:14px; color:#4B5563; margin-bottom:20px; line-height:1.7;">
+                    以下にご入力いただくと、サービス資料をメールでお送りいたします。
+                </p>
+                <div id="downloadErrors" class="form-errors-summary" style="display:none;"></div>
+                <form onsubmit="submitDownloadForm(event)">
+                    <div class="form-group">
+                        <label class="form-label">会社名<span class="required">*</span> <span style="font-size: 11px; color: #888; font-weight: normal; margin-left: 4px;">個人の方はお名前を記載ください</span></label>
+                        <input type="text" class="form-input" id="dlCompanyName" placeholder="例：株式会社エレキテル">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">お名前<span class="required">*</span></label>
+                        <input type="text" class="form-input" id="dlName" placeholder="例：山田 太郎">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">電話番号<span class="required">*</span></label>
+                        <input type="tel" class="form-input" id="dlPhone" placeholder="例：052-842-9697">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス<span class="required">*</span></label>
+                        <input type="email" class="form-input" id="dlEmail" placeholder="例：info@example.com">
+                    </div>
+                    <div class="privacy-agree">
+                        <div class="form-checkbox-row" style="margin-bottom:0;">
+                            <input type="checkbox" id="dlPrivacy">
+                            <label for="dlPrivacy"><a href="https://scan-pro.jp/privacy/" target="_blank">プライバシーポリシー</a>に同意する</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="form-submit-btn" id="downloadSubmitBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        資料を受け取る
+                    </button>
+                </form>
+            </div>
+
+            <!-- 送信成功画面 -->
+            <div id="downloadSuccess" class="form-success" style="display:none;">
+                <div class="form-success-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h3>資料をメールでお送りしました</h3>
+                <p>ご入力いただいたメールアドレスに<br>サービス資料をお送りしました。<br>届かない場合は迷惑メールフォルダをご確認ください。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- スキャン対象「その他」の表示切替 -->
+<script>
+// Cases horizontal scroll driven by vertical scroll
+if (window.innerWidth <= 768) {
+    (function() {
+        const spacer = document.getElementById('casesScrollSpacer');
+        const grid = document.getElementById('casesGrid');
+        const caseCards = grid ? grid.querySelectorAll('.case-card') : [];
+        const thumb = document.querySelector('.cases-scroll-bar-thumb');
+        const numCards = caseCards.length;
+
+        if (spacer && grid && numCards > 0) {
+            spacer.style.height = (numCards * 100) + 'vh';
+
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        var rect = spacer.getBoundingClientRect();
+                        var spacerH = spacer.offsetHeight;
+                        var viewH = window.innerHeight;
+                        var scrolled = -rect.top;
+                        var maxScroll = spacerH - viewH;
+                        var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+                        // 横方向トランスレート（カード幅 85vw + マージン 5vw = 90vw per card）
+                        var cardW = window.innerWidth * 0.9;
+                        var totalWidth = cardW * numCards + window.innerWidth * 0.075;
+                        var translateX = progress * (totalWidth - window.innerWidth);
+                        grid.style.transform = 'translateX(' + (-Math.max(0, translateX)) + 'px)';
+
+                        // スクロールバーthumb更新
+                        if (thumb) {
+                            var trackW = thumb.parentElement.clientWidth;
+                            var thumbW = thumb.clientWidth;
+                            thumb.style.left = (progress * (trackW - thumbW)) + 'px';
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        }
+    })();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var otherCheckboxes = document.querySelectorAll('input[name="scanTarget"]');
+    otherCheckboxes.forEach(function(cb) {
+        cb.addEventListener('change', function() {
+            var otherChecked = document.querySelector('input[name="scanTarget"][value="その他"]').checked;
+            var otherGroup = document.getElementById('scanTargetOtherGroup');
+            if (otherGroup) {
+                otherGroup.style.display = otherChecked ? 'block' : 'none';
+            }
+        });
+    });
+});
+</script>
+
+<!-- Mobile: Floating Buttons -->
+<div class="mobile-floating-buttons" id="mobileFloating">
+    <a href="tel:052-842-9697" class="mobile-float-btn mobile-float-phone">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <button class="mobile-float-btn mobile-float-mail" onclick="openContactModal()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </button>
+</div>
+
+<script src="js/modal.js?v=20260418"></script>
+</body>
+</html>
