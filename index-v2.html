@@ -683,7 +683,7 @@
             }
             .features-sticky.is-fixed {
                 position: fixed;
-                top: 0;
+                top: 60px;
                 left: 0;
                 width: 100%;
                 z-index: 50;
@@ -912,7 +912,7 @@
             }
             .cases-sticky.is-fixed {
                 position: fixed;
-                top: 0;
+                top: 60px;
                 left: 0;
                 width: 100%;
                 z-index: 50;
@@ -1620,9 +1620,10 @@ function setupScrollDrivenSlide(spacerId, stickyId, gridId, cardSelector, progre
                 var rect = spacer.getBoundingClientRect();
                 var spacerH = spacer.offsetHeight;
                 var viewH = window.innerHeight;
+                var headerH = 60; // モバイルヘッダーの高さ
 
-                // スクロール範囲内かどうか判定
-                var inRange = rect.top <= 0 && rect.bottom >= viewH;
+                // スクロール範囲内かどうか判定（ヘッダー分オフセット）
+                var inRange = rect.top <= headerH && rect.bottom >= viewH;
                 var pastEnd = rect.bottom < viewH;
 
                 if (inRange) {
@@ -1639,8 +1640,8 @@ function setupScrollDrivenSlide(spacerId, stickyId, gridId, cardSelector, progre
                     stickyEl.classList.remove('is-bottom');
                 }
 
-                // 進捗計算
-                var scrolled = -rect.top;
+                // 進捗計算（ヘッダー分オフセット）
+                var scrolled = -(rect.top - headerH);
                 var maxScroll = spacerH - viewH;
                 var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
 
@@ -1819,7 +1820,8 @@ if (window.innerWidth <= 768) {
             var rect = spacer.getBoundingClientRect();
             var spacerH = spacer.offsetHeight;
             var viewH = window.innerHeight;
-            var scrolled = -rect.top;
+            var headerH = 60;
+            var scrolled = -(rect.top - headerH);
             var maxScroll = spacerH - viewH;
             var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
             var trackW = thumb.parentElement.clientWidth;
