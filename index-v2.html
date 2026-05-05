@@ -55,7 +55,7 @@
             line-height: 1.8;
             background: var(--bg-white);
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            overflow-x: clip;
         }
         .header {
             position: fixed; top: 0; left: 0; right: 0;
@@ -717,6 +717,10 @@
                 text-align: center;
                 position: relative;
                 overflow: hidden;
+                /* fade-inアニメーションを無効化（横スクロール内で不可視になるのを防止） */
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
             }
             /* 全カードに背景色（交互パターン・赤系） */
             .feature-card:nth-child(1) { background: linear-gradient(180deg, #FEF2F2 0%, #FECACA 100%); }
@@ -921,6 +925,10 @@
                 margin: 0 2.5vw;
                 height: auto;
                 align-self: center;
+                /* fade-inアニメーションを無効化 */
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
             }
             .case-card:first-child { margin-left: 7.5vw; }
             .case-card:last-child { margin-right: 7.5vw; }
