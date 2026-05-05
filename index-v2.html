@@ -677,8 +677,8 @@
             .features-sticky {
                 display: block;
                 position: relative;
-                height: 80vh;
-                height: 80dvh;
+                height: calc(100vh - 60px);
+                height: calc(100dvh - 60px);
                 overflow: hidden;
             }
             .features-sticky.is-fixed {
@@ -697,15 +697,16 @@
             }
             .features-sticky .section-header {
                 position: absolute;
-                top: 16px;
+                top: 12px;
                 left: 0; right: 0;
                 z-index: 10;
                 margin-bottom: 0;
                 padding: 0 20px;
+                background: inherit;
             }
-            .features-sticky .section-header .section-label { font-size: 12px; margin-bottom: 4px; }
-            .features-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
-            .features-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
+            .features-sticky .section-header .section-label { font-size: 11px; margin-bottom: 2px; }
+            .features-sticky .section-header .section-title { font-size: 18px; margin-bottom: 2px; }
+            .features-sticky .section-header .section-subtitle { font-size: 11px; line-height: 1.4; }
             .features-grid {
                 grid-template-columns: 1fr; gap: 0;
                 display: flex !important;
@@ -716,11 +717,11 @@
             }
             .feature-card {
                 min-height: auto;
-                height: 80vh;
-                height: 80dvh;
+                height: calc(100vh - 60px);
+                height: calc(100dvh - 60px);
                 width: 100vw;
                 flex: 0 0 100vw;
-                padding: 80px 24px 30px;
+                padding: 100px 24px 30px;
                 border-radius: 0;
                 border: none;
                 display: flex;
@@ -906,8 +907,8 @@
             .cases-sticky {
                 display: block;
                 position: relative;
-                height: 100vh;
-                height: 100dvh;
+                height: calc(100vh - 60px);
+                height: calc(100dvh - 60px);
                 overflow: hidden;
             }
             .cases-sticky.is-fixed {
@@ -926,14 +927,15 @@
             }
             .cases-sticky .section-header {
                 position: absolute;
-                top: 16px;
+                top: 12px;
                 left: 0; right: 0;
                 z-index: 10;
                 margin-bottom: 0;
                 padding: 0 20px;
+                background: inherit;
             }
-            .cases-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
-            .cases-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
+            .cases-sticky .section-header .section-title { font-size: 18px; margin-bottom: 2px; }
+            .cases-sticky .section-header .section-subtitle { font-size: 11px; line-height: 1.4; }
             .cases-grid {
                 display: flex !important;
                 position: absolute;
@@ -941,9 +943,10 @@
                 height: 100%;
                 will-change: transform;
                 gap: 0;
-                padding: 0;
+                padding: 70px 0 20px;
                 margin: 0;
                 overflow: visible;
+                box-sizing: border-box;
             }
             .cases-grid::-webkit-scrollbar { display: none; }
             .case-card {
