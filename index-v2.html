@@ -676,11 +676,24 @@
             }
             .features-sticky {
                 display: block;
-                position: sticky;
-                top: 0;
+                position: relative;
                 height: 100vh;
                 height: 100dvh;
                 overflow: hidden;
+            }
+            .features-sticky.is-fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 50;
+            }
+            .features-sticky.is-bottom {
+                position: absolute;
+                bottom: 0;
+                top: auto;
+                left: 0;
+                width: 100%;
             }
             .features-sticky .section-header {
                 position: absolute;
@@ -892,11 +905,24 @@
             }
             .cases-sticky {
                 display: block;
-                position: sticky;
-                top: 0;
+                position: relative;
                 height: 100vh;
                 height: 100dvh;
                 overflow: hidden;
+            }
+            .cases-sticky.is-fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 50;
+            }
+            .cases-sticky.is-bottom {
+                position: absolute;
+                bottom: 0;
+                top: auto;
+                left: 0;
+                width: 100%;
             }
             .cases-sticky .section-header {
                 position: absolute;
@@ -1568,58 +1594,90 @@ document.getElementById('mobileNav').querySelectorAll('a').forEach(link => {
     });
 });
 
-// Feature horizontal scroll driven by vertical scroll
-if (window.innerWidth <= 768) {
-    const spacer = document.getElementById('featuresScrollSpacer');
-    const sticky = document.getElementById('featuresSticky');
-    const grid = document.getElementById('featuresGrid');
-    const featureCards = document.querySelectorAll('#features .feature-card');
-    const progressEl = document.getElementById('featureProgress');
-    const dots = progressEl ? progressEl.querySelectorAll('.feature-progress-dot') : [];
-    const countEl = progressEl ? progressEl.querySelector('.feature-progress-count') : null;
-    const numCards = featureCards.length;
+// Helper: JS-driven sticky (position:fixed) to avoid CSS sticky + overflow-x issues
+function setupScrollDrivenSlide(spacerId, stickyId, gridId, cardSelector, progressEl, dotSelector, countSelector) {
+    var spacer = document.getElementById(spacerId);
+    var stickyEl = document.getElementById(stickyId);
+    var grid = document.getElementById(gridId);
+    if (!spacer || !stickyEl || !grid) return;
 
-    if (spacer && grid && numCards > 0) {
-        // スペーサーの高さ = カード枚数 × 100vh（スクロール領域を確保）
-        spacer.style.height = (numCards * 100) + 'vh';
+    var allCards = Array.from(grid.querySelectorAll(cardSelector));
+    var visibleCards = allCards.filter(function(c) { return getComputedStyle(c).display !== 'none'; });
+    var numCards = visibleCards.length;
+    if (numCards === 0) return;
 
-        let ticking = false;
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(function() {
-                    const rect = spacer.getBoundingClientRect();
-                    const spacerH = spacer.offsetHeight;
-                    const viewH = window.innerHeight;
-                    // スクロール進捗: 0（先頭）〜 1（末尾）
-                    const scrolled = -rect.top;
-                    const maxScroll = spacerH - viewH;
-                    const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+    var progEl = progressEl ? document.getElementById(progressEl) : null;
+    var dots = progEl ? progEl.querySelectorAll(dotSelector || '.x') : [];
+    var countEl = progEl ? progEl.querySelector(countSelector || '.x') : null;
 
-                    // 横方向のトランスレート
-                    const totalWidth = numCards * window.innerWidth;
-                    const translateX = progress * (totalWidth - window.innerWidth);
-                    grid.style.transform = 'translateX(' + (-translateX) + 'px)';
+    // スペーサーの高さ = カード枚数 × 100vh
+    spacer.style.height = (numCards * 100) + 'vh';
 
-                    // プログレスドット更新
-                    const activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
-                    if (progressEl) {
-                        // セクションが画面内にあるときだけ表示
-                        const inView = rect.top < viewH && rect.bottom > 0;
-                        progressEl.classList.toggle('show', inView);
-                    }
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                var rect = spacer.getBoundingClientRect();
+                var spacerH = spacer.offsetHeight;
+                var viewH = window.innerHeight;
+
+                // スクロール範囲内かどうか判定
+                var inRange = rect.top <= 0 && rect.bottom >= viewH;
+                var pastEnd = rect.bottom < viewH;
+
+                if (inRange) {
+                    // スクロール中: fixed で画面に固定
+                    stickyEl.classList.add('is-fixed');
+                    stickyEl.classList.remove('is-bottom');
+                } else if (pastEnd) {
+                    // スクロール終了: spacer下端に固定
+                    stickyEl.classList.remove('is-fixed');
+                    stickyEl.classList.add('is-bottom');
+                } else {
+                    // まだ到達していない
+                    stickyEl.classList.remove('is-fixed');
+                    stickyEl.classList.remove('is-bottom');
+                }
+
+                // 進捗計算
+                var scrolled = -rect.top;
+                var maxScroll = spacerH - viewH;
+                var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+                // 横方向のトランスレート
+                var totalWidth = numCards * window.innerWidth;
+                var translateX = progress * (totalWidth - window.innerWidth);
+                grid.style.transform = 'translateX(' + (-translateX) + 'px)';
+
+                // プログレスドット更新
+                var activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
+                if (progEl) {
+                    var inView = rect.top < viewH && rect.bottom > 0;
+                    progEl.classList.toggle('show', inView);
+                }
+                if (dots.length > 0) {
                     dots.forEach(function(dot, i) {
                         dot.classList.remove('active', 'passed');
                         if (i === activeIdx) dot.classList.add('active');
                         else if (i < activeIdx) dot.classList.add('passed');
                     });
-                    if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
+                }
+                if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
 
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-    }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Feature horizontal scroll driven by vertical scroll
+if (window.innerWidth <= 768) {
+    setupScrollDrivenSlide(
+        'featuresScrollSpacer', 'featuresSticky', 'featuresGrid',
+        '.feature-card', 'featureProgress',
+        '.feature-progress-dot', '.feature-progress-count'
+    );
 }
 </script>
 </div>
@@ -1744,47 +1802,30 @@ if (window.innerWidth <= 768) {
 
 <!-- スキャン対象「その他」の表示切替 -->
 <script>
-// Cases horizontal scroll driven by vertical scroll
+// Cases: reuse the same scroll-driven slide helper
 if (window.innerWidth <= 768) {
+    setupScrollDrivenSlide(
+        'casesScrollSpacer', 'casesSticky', 'casesGrid',
+        '.case-card', null, null, null
+    );
+    // Also update scroll bar thumb for cases
     (function() {
-        const spacer = document.getElementById('casesScrollSpacer');
-        const grid = document.getElementById('casesGrid');
-        const caseCards = grid ? grid.querySelectorAll('.case-card') : [];
-        const thumb = document.querySelector('.cases-scroll-bar-thumb');
-        const numCards = caseCards.length;
-
-        if (spacer && grid && numCards > 0) {
-            spacer.style.height = (numCards * 100) + 'vh';
-
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    requestAnimationFrame(function() {
-                        var rect = spacer.getBoundingClientRect();
-                        var spacerH = spacer.offsetHeight;
-                        var viewH = window.innerHeight;
-                        var scrolled = -rect.top;
-                        var maxScroll = spacerH - viewH;
-                        var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
-
-                        // 横方向トランスレート（カード幅 85vw + マージン 5vw = 90vw per card）
-                        var cardW = window.innerWidth * 0.9;
-                        var totalWidth = cardW * numCards + window.innerWidth * 0.075;
-                        var translateX = progress * (totalWidth - window.innerWidth);
-                        grid.style.transform = 'translateX(' + (-Math.max(0, translateX)) + 'px)';
-
-                        // スクロールバーthumb更新
-                        if (thumb) {
-                            var trackW = thumb.parentElement.clientWidth;
-                            var thumbW = thumb.clientWidth;
-                            thumb.style.left = (progress * (trackW - thumbW)) + 'px';
-                        }
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-        }
+        var spacer = document.getElementById('casesScrollSpacer');
+        var thumb = document.querySelector('.cases-scroll-bar-thumb');
+        var grid = document.getElementById('casesGrid');
+        if (!spacer || !thumb || !grid) return;
+        var numCards = grid.querySelectorAll('.case-card').length;
+        window.addEventListener('scroll', function() {
+            var rect = spacer.getBoundingClientRect();
+            var spacerH = spacer.offsetHeight;
+            var viewH = window.innerHeight;
+            var scrolled = -rect.top;
+            var maxScroll = spacerH - viewH;
+            var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+            var trackW = thumb.parentElement.clientWidth;
+            var thumbW = thumb.clientWidth;
+            thumb.style.left = (progress * (trackW - thumbW)) + 'px';
+        });
     })();
 }
 
