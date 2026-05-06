@@ -695,17 +695,12 @@
                 left: 0;
                 width: 100%;
             }
-            .features-sticky .section-header {
-                position: absolute;
-                top: 0;
-                left: 0; right: 0;
-                z-index: 10;
-                margin-bottom: 0;
-                padding: 12px 20px 8px;
+            .features-section-header-mobile .section-header {
+                text-align: center;
+                margin-bottom: 16px;
             }
-            .features-sticky .section-header .section-label { font-size: 11px; margin-bottom: 2px; }
-            .features-sticky .section-header .section-title { font-size: 18px; margin-bottom: 2px; }
-            .features-sticky .section-header .section-subtitle { font-size: 11px; line-height: 1.4; }
+            .features-section-header-mobile .section-title { font-size: 20px; margin-bottom: 4px; }
+            .features-section-header-mobile .section-subtitle { font-size: 12px; line-height: 1.5; }
             .features-grid {
                 grid-template-columns: 1fr; gap: 0;
                 display: flex !important;
@@ -720,7 +715,7 @@
                 height: calc(100dvh - 60px);
                 width: 100vw;
                 flex: 0 0 100vw;
-                padding: 100px 24px 30px;
+                padding: 30px 24px 30px;
                 border-radius: 0;
                 border: none;
                 display: flex;
@@ -744,14 +739,14 @@
             .feature-card:nth-child(6) { background: linear-gradient(180deg, #ECFDF5 0%, #D1FAE5 100%); }
             .feature-card:hover { transform: none; box-shadow: none; }
 
-            /* つなぎ目：前のカードの色が上から食い込む逆三角 */
+            /* つなぎ目：前のカードの色が左から食い込む横三角 */
             .feature-card::before {
                 content: '';
                 position: absolute;
-                top: -1px; left: 10%; right: 10%;
-                width: 80%;
-                height: 32px;
-                clip-path: polygon(0 0, 100% 0, 50% 100%);
+                left: -1px; top: 10%; bottom: 10%;
+                width: 32px;
+                height: 80%;
+                clip-path: polygon(0 0, 100% 50%, 0 100%);
                 z-index: 2;
                 transform: none !important;
             }
@@ -924,18 +919,12 @@
                 left: 0;
                 width: 100%;
             }
-            .cases-sticky .section-header {
-                position: absolute;
-                top: 0;
-                left: 0; right: 0;
-                z-index: 10;
-                margin-bottom: 0;
-                padding: 12px 20px 8px;
-                background: white;
+            .cases-section-header-mobile .section-header {
+                text-align: center;
+                margin-bottom: 16px;
             }
-            .cases-sticky .section-header .section-label { font-size: 11px; margin-bottom: 2px; }
-            .cases-sticky .section-header .section-title { font-size: 18px; margin-bottom: 2px; }
-            .cases-sticky .section-header .section-subtitle { font-size: 11px; line-height: 1.4; }
+            .cases-section-header-mobile .section-title { font-size: 20px; margin-bottom: 4px; }
+            .cases-section-header-mobile .section-subtitle { font-size: 12px; line-height: 1.5; }
             .cases-grid {
                 display: flex !important;
                 position: absolute;
@@ -943,7 +932,7 @@
                 height: 100%;
                 will-change: transform;
                 gap: 0;
-                padding: 80px 0 40px;
+                padding: 20px 0;
                 margin: 0;
                 overflow: visible;
                 box-sizing: border-box;
@@ -1266,14 +1255,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="section section-cream" id="features">
-    <div class="features-scroll-spacer" id="featuresScrollSpacer">
-    <div class="features-sticky" id="featuresSticky">
-    <div class="section-inner">
+    <div class="section-inner features-section-header-mobile">
         <div class="section-header">
             <span class="section-label">Features</span>
             <h2 class="section-title">スキャンProが選ばれる理由</h2>
             <p class="section-subtitle">価格・品質・対応力。すべてにおいて妥協しない、プロフェッショナルな電子化サービスです。</p>
         </div>
+    </div>
+    <div class="features-scroll-spacer" id="featuresScrollSpacer">
+    <div class="features-sticky" id="featuresSticky">
+        <div class="section-inner">
         <div class="features-grid" id="featuresGrid">
             <div class="feature-card fade-in">
                 <span class="feature-number">01</span>
@@ -1318,7 +1309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="feature-description">ファイル名・フォルダ構成・解像度など、業務に最適な形式で納品。難しい要望も100%実現。</p>
             </div>
         </div>
-    </div>
+        </div><!-- /.section-inner -->
     </div><!-- /.features-sticky -->
     </div><!-- /.features-scroll-spacer -->
 </section>
@@ -1381,14 +1372,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <section class="section" id="cases">
-    <div class="cases-scroll-spacer" id="casesScrollSpacer">
-    <div class="cases-sticky" id="casesSticky">
-    <div class="section-inner">
+    <div class="section-inner cases-section-header-mobile">
         <div class="section-header">
             <span class="section-label">Case Studies</span>
             <h2 class="section-title">業界別 導入事例</h2>
             <p class="section-subtitle">製造業・化学メーカー・工事会社・大学など、幅広い業界でご活用いただいています。</p>
         </div>
+    </div>
+    <div class="cases-scroll-spacer" id="casesScrollSpacer">
+    <div class="cases-sticky" id="casesSticky">
+        <div class="section-inner">
         <div class="cases-scroll-bar"><div class="cases-scroll-bar-thumb"></div></div>
         <div class="cases-grid" id="casesGrid">
             <div class="case-card fade-in">
@@ -1440,7 +1433,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </div>
-    </div>
+        </div><!-- /.section-inner -->
     </div><!-- /.cases-sticky -->
     </div><!-- /.cases-scroll-spacer -->
 </section>

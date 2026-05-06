@@ -1081,19 +1081,12 @@
                 left: 0;
                 width: 100%;
             }
-            .features-sticky .section-header,
-            .features-scroll-spacer .section-header {
-                position: absolute;
-                top: 0;
-                left: 0; right: 0;
-                z-index: 10;
-                margin-bottom: 0;
-                padding: 12px 20px 8px;
+            .features-section-header-mobile .section-header {
+                text-align: center;
+                margin-bottom: 16px;
             }
-            .features-sticky .section-header .section-title,
-            #features .section-title { font-size: 18px; margin-bottom: 2px; }
-            .features-sticky .section-header .section-subtitle,
-            #features .section-subtitle { font-size: 11px; line-height: 1.4; }
+            .features-section-header-mobile .section-title { font-size: 20px; margin-bottom: 4px; }
+            .features-section-header-mobile .section-subtitle { font-size: 12px; line-height: 1.5; }
             .features-grid {
                 grid-template-columns: 1fr; gap: 0;
                 display: flex !important;
@@ -1109,7 +1102,7 @@
                 height: calc(100dvh - 60px);
                 width: 100vw;
                 flex: 0 0 100vw;
-                padding: 100px 24px 30px;
+                padding: 30px 24px 30px;
                 border-radius: 0;
                 border: none;
                 display: flex;
@@ -1241,23 +1234,12 @@
                 left: 0;
                 width: 100%;
             }
-            .cases-sticky .section-header,
-            .cases-scroll-spacer .section-header,
-            #cases .section-header {
-                position: absolute;
-                top: 0;
-                left: 0; right: 0;
-                z-index: 10;
-                margin-bottom: 0;
-                padding: 12px 20px 8px;
-                background: white;
+            .cases-section-header-mobile .section-header {
+                text-align: center;
+                margin-bottom: 16px;
             }
-            .cases-sticky .section-header .section-label,
-            #cases .section-label { font-size: 11px; margin-bottom: 2px; }
-            .cases-sticky .section-header .section-title,
-            #cases .section-title { font-size: 18px; margin-bottom: 2px; }
-            .cases-sticky .section-header .section-subtitle,
-            #cases .section-subtitle { font-size: 11px; line-height: 1.4; }
+            .cases-section-header-mobile .section-title { font-size: 20px; margin-bottom: 4px; }
+            .cases-section-header-mobile .section-subtitle { font-size: 12px; line-height: 1.5; }
             .cases-grid { display: none !important; }
             .cases-carousel {
                 display: flex !important;
@@ -1266,7 +1248,7 @@
                 height: 100%;
                 will-change: transform;
                 gap: 0;
-                padding: 80px 0 40px;
+                padding: 20px 0;
                 margin: 0;
                 overflow: visible;
                 box-sizing: border-box;
@@ -1779,13 +1761,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="section section-features-header" id="features">
-    <div class="features-scroll-spacer" id="featuresScrollSpacer">
-    <div class="features-sticky" id="featuresSticky">
-    <div class="section-inner">
+    <div class="section-inner features-section-header-mobile">
         <div class="section-header">
             <h2 class="section-title">スキャンProが選ばれる理由</h2>
             <p class="section-subtitle">価格・品質・対応力。すべてにおいて妥協しない、プロフェッショナルな電子化サービスです。</p>
         </div>
+    </div>
+    <div class="features-scroll-spacer" id="featuresScrollSpacer">
+    <div class="features-sticky" id="featuresSticky">
+    <div class="section-inner">
         <div class="features-grid" id="featuresGrid">
             <div class="feature-card fade-in slide-in-left stagger-1">
                 <span class="feature-number">01</span>
@@ -1957,13 +1941,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="section" id="cases">
-    <div class="cases-scroll-spacer" id="casesScrollSpacer">
-    <div class="cases-sticky" id="casesSticky">
-    <div class="section-inner">
+    <div class="section-inner cases-section-header-mobile">
         <div class="section-header">
             <h2 class="section-title">利用者の声</h2>
             <p class="section-subtitle">読書家、フリーランス、引越し前の方、小規模クリニックなど、様々な方にご活用いただいています。</p>
         </div>
+    </div>
+    <div class="cases-scroll-spacer" id="casesScrollSpacer">
+    <div class="cases-sticky" id="casesSticky">
+    <div class="section-inner">
         <div class="cases-grid" id="casesGridDesktop">
             <div class="case-card fade-in">
                 <div class="case-image"><img src="image/personal-case-library.webp" alt="読書家事例"></div>
