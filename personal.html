@@ -1084,12 +1084,11 @@
             .features-sticky .section-header,
             .features-scroll-spacer .section-header {
                 position: absolute;
-                top: 12px;
+                top: 0;
                 left: 0; right: 0;
                 z-index: 10;
                 margin-bottom: 0;
-                padding: 0 20px;
-                background: inherit;
+                padding: 12px 20px 8px;
             }
             .features-sticky .section-header .section-title,
             #features .section-title { font-size: 18px; margin-bottom: 2px; }
@@ -1246,13 +1245,15 @@
             .cases-scroll-spacer .section-header,
             #cases .section-header {
                 position: absolute;
-                top: 12px;
+                top: 0;
                 left: 0; right: 0;
                 z-index: 10;
                 margin-bottom: 0;
-                padding: 0 20px;
-                background: inherit;
+                padding: 12px 20px 8px;
+                background: white;
             }
+            .cases-sticky .section-header .section-label,
+            #cases .section-label { font-size: 11px; margin-bottom: 2px; }
             .cases-sticky .section-header .section-title,
             #cases .section-title { font-size: 18px; margin-bottom: 2px; }
             .cases-sticky .section-header .section-subtitle,
@@ -1265,23 +1266,34 @@
                 height: 100%;
                 will-change: transform;
                 gap: 0;
-                padding: 70px 0 20px;
+                padding: 80px 0 40px;
                 margin: 0;
                 overflow: visible;
                 box-sizing: border-box;
+                align-items: stretch;
             }
             .cases-carousel::-webkit-scrollbar { display: none; }
             .cases-carousel .case-card {
                 flex: 0 0 85vw;
                 margin: 0 2.5vw;
                 height: auto;
-                align-self: center;
+                align-self: stretch;
+                display: flex;
+                flex-direction: column;
                 border-radius: 16px;
                 overflow: hidden;
                 box-shadow: 0 8px 24px rgba(0,0,0,0.08);
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
+            }
+            .cases-carousel .case-card .case-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .cases-carousel .case-card .case-description {
+                flex: 1;
             }
             .cases-carousel .case-card:first-child { margin-left: 7.5vw; }
             .cases-carousel .case-card:last-child { margin-right: 7.5vw; }

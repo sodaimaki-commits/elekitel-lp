@@ -697,12 +697,11 @@
             }
             .features-sticky .section-header {
                 position: absolute;
-                top: 12px;
+                top: 0;
                 left: 0; right: 0;
                 z-index: 10;
                 margin-bottom: 0;
-                padding: 0 20px;
-                background: inherit;
+                padding: 12px 20px 8px;
             }
             .features-sticky .section-header .section-label { font-size: 11px; margin-bottom: 2px; }
             .features-sticky .section-header .section-title { font-size: 18px; margin-bottom: 2px; }
@@ -927,13 +926,14 @@
             }
             .cases-sticky .section-header {
                 position: absolute;
-                top: 12px;
+                top: 0;
                 left: 0; right: 0;
                 z-index: 10;
                 margin-bottom: 0;
-                padding: 0 20px;
-                background: inherit;
+                padding: 12px 20px 8px;
+                background: white;
             }
+            .cases-sticky .section-header .section-label { font-size: 11px; margin-bottom: 2px; }
             .cases-sticky .section-header .section-title { font-size: 18px; margin-bottom: 2px; }
             .cases-sticky .section-header .section-subtitle { font-size: 11px; line-height: 1.4; }
             .cases-grid {
@@ -943,21 +943,32 @@
                 height: 100%;
                 will-change: transform;
                 gap: 0;
-                padding: 70px 0 20px;
+                padding: 80px 0 40px;
                 margin: 0;
                 overflow: visible;
                 box-sizing: border-box;
+                align-items: stretch;
             }
             .cases-grid::-webkit-scrollbar { display: none; }
             .case-card {
                 flex: 0 0 85vw;
                 margin: 0 2.5vw;
                 height: auto;
-                align-self: center;
+                align-self: stretch;
+                display: flex;
+                flex-direction: column;
                 /* fade-inアニメーションを無効化 */
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
+            }
+            .case-card .case-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .case-card .case-description {
+                flex: 1;
             }
             .case-card:first-child { margin-left: 7.5vw; }
             .case-card:last-child { margin-right: 7.5vw; }
