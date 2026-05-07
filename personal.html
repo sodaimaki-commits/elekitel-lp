@@ -1051,95 +1051,26 @@
             /* === FEATURES HEADER BACKGROUND === */
             .section-features-header { background: #F3F4F6; }
 
-            /* === FEATURES (横スナップスクロール) === */
+            /* === FEATURES (縦スクロール) === */
             #features {
                 padding: 0 !important;
                 background: transparent !important;
             }
-            .features-scroll-spacer {
-                display: block;
-                position: relative;
-            }
-            .features-sticky {
-                display: block;
-                position: relative;
-                height: calc(100vh - 60px);
-                height: calc(100dvh - 60px);
-                overflow: hidden;
-            }
-            .features-sticky.is-fixed {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                z-index: 50;
-            }
-            .features-sticky.is-bottom {
-                position: absolute;
-                bottom: 0;
-                top: auto;
-                left: 0;
-                width: 100%;
-            }
-            .features-section-header-mobile .section-header {
-                text-align: center;
-                margin-bottom: 16px;
-            }
-            .features-section-header-mobile .section-title { font-size: 20px; margin-bottom: 4px; }
-            .features-section-header-mobile .section-subtitle { font-size: 12px; line-height: 1.5; }
+            .features-section-header-mobile { display: none; }
             .features-grid {
-                grid-template-columns: 1fr; gap: 0;
-                display: flex !important;
-                position: absolute;
-                top: 0; left: 0;
-                height: 100%;
-                will-change: transform;
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
-            .features-grid::-webkit-scrollbar { display: none; }
             .feature-card {
                 min-height: auto;
-                height: calc(100vh - 60px);
-                height: calc(100dvh - 60px);
-                width: 100vw;
-                flex: 0 0 100vw;
-                padding: 30px 24px 30px;
-                border-radius: 0;
-                border: none;
+                padding: 24px 20px;
+                border-radius: 16px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
                 align-items: center;
                 text-align: center;
-                position: relative;
-                overflow: hidden;
-                opacity: 1 !important;
-                transform: none !important;
-                transition: none !important;
             }
-            .feature-card:first-child { margin-left: 0; }
-            .feature-card:last-child { margin-right: 0; }
-            /* 全カードに背景色（交互パターン） */
-            .feature-card:nth-child(1) { background: linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%); }
-            .feature-card:nth-child(2) { background: linear-gradient(180deg, #F0FDF4 0%, #DCFCE7 100%); }
-            .feature-card:nth-child(3) { background: linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%); }
-            .feature-card:nth-child(4) { background: linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%); }
-            .feature-card:nth-child(5) { background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%); }
-            .feature-card:nth-child(6) { background: linear-gradient(180deg, #F0FDF4 0%, #DCFCE7 100%); }
-            .feature-card:hover { transform: none; box-shadow: none; }
-
-            /* 横スクロール時はつなぎ目不要 */
-            .feature-card::before { display: none !important; }
-
-            /* スマホでは5・6番目を非表示 */
-            .feature-card:nth-child(5),
-            .feature-card:nth-child(6) { display: none !important; }
-
-            /* 横スクロール内のアニメーション無効化 */
-            .features-grid .feature-card,
-            .cases-carousel .case-card {
-                opacity: 1 !important;
-                transition: none !important;
-            }
+            .feature-card::before { display: none; }
 
             /* 番号：左上に固定 */
             .feature-number {
@@ -1207,105 +1138,26 @@
             .wave-separator.cream-to-dark svg { fill: var(--bg-dark); }
             .wave-separator.dark-to-blue svg { fill: #2563EB; }
 
-            /* === CASES (縦スクロール駆動の横スライド) === */
+            /* === CASES (縦スクロール) === */
             #cases { padding: 0 !important; background: transparent !important; }
-            .cases-scroll-spacer {
-                display: block;
-                position: relative;
-            }
-            .cases-sticky {
-                display: block;
-                position: relative;
-                height: calc(100vh - 60px);
-                height: calc(100dvh - 60px);
-                overflow: hidden;
-            }
-            .cases-sticky.is-fixed {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                z-index: 50;
-            }
-            .cases-sticky.is-bottom {
-                position: absolute;
-                bottom: 0;
-                top: auto;
-                left: 0;
-                width: 100%;
-            }
-            .cases-section-header-mobile .section-header {
-                text-align: center;
-                margin-bottom: 16px;
-            }
-            .cases-section-header-mobile .section-title { font-size: 20px; margin-bottom: 4px; }
-            .cases-section-header-mobile .section-subtitle { font-size: 12px; line-height: 1.5; }
+            .cases-section-header-mobile { display: none; }
             .cases-grid { display: none !important; }
             .cases-carousel {
                 display: flex !important;
-                position: absolute;
-                top: 0; left: 0;
-                height: 100%;
-                will-change: transform;
-                gap: 0;
-                padding: 20px 0;
-                margin: 0;
-                overflow: visible;
-                box-sizing: border-box;
-                align-items: stretch;
+                flex-direction: column;
+                gap: 16px;
+                padding: 0 16px;
             }
-            .cases-carousel::-webkit-scrollbar { display: none; }
             .cases-carousel .case-card {
-                flex: 0 0 85vw;
-                margin: 0 2.5vw;
-                height: auto;
-                align-self: stretch;
-                display: flex;
-                flex-direction: column;
-                border-radius: 16px;
-                overflow: hidden;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-                opacity: 1 !important;
-                transform: none !important;
-                transition: none !important;
+                flex: none;
+                width: 100%;
+                margin: 0;
             }
-            .cases-carousel .case-card .case-content {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-            }
-            .cases-carousel .case-card .case-description {
-                flex: 1;
-            }
-            .cases-carousel .case-card:first-child { margin-left: 7.5vw; }
-            .cases-carousel .case-card:last-child { margin-right: 7.5vw; }
-            /* スクロール促進の矢印・スワイプインジケーターを非表示 */
+            .cases-carousel .case-card:first-child { margin-left: 0; }
+            .cases-carousel .case-card:last-child { margin-right: 0; }
             .carousel-scroll-hint { display: none !important; }
             .swipe-indicator { display: none !important; }
-            /* スクロールバー */
-            .cases-scroll-bar-personal {
-                display: block;
-                position: absolute;
-                bottom: 24px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 10;
-                width: 60%;
-                max-width: 200px;
-                height: 3px;
-                background: rgba(0,0,0,0.1);
-                border-radius: 3px;
-                overflow: hidden;
-            }
-            .cases-scroll-bar-personal .scroll-thumb {
-                position: absolute;
-                top: 0; left: 0;
-                height: 100%;
-                width: 30%;
-                background: var(--primary);
-                border-radius: 3px;
-                transition: left 0.15s ease;
-            }
+            .cases-scroll-bar-personal { display: none; }
             .case-image { aspect-ratio: 16/10; }
             .case-content { padding: 20px; }
             .case-badge { font-size: 13px; padding: 3px 12px; }
@@ -2297,105 +2149,107 @@ const observer = new IntersectionObserver((entries) => { entries.forEach(entry =
 document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => observer.observe(el));
 
 // Helper: JS-driven sticky (position:fixed) to avoid CSS sticky + overflow-x issues
-function setupScrollDrivenSlide(spacerId, stickyId, gridId, cardSelector, progressElId, dotSelector, countSelector) {
-    var spacer = document.getElementById(spacerId);
-    var stickyEl = document.getElementById(stickyId);
-    var grid = document.getElementById(gridId);
-    if (!spacer || !stickyEl || !grid) return;
-
-    var allCards = Array.from(grid.querySelectorAll(cardSelector));
-    var visibleCards = allCards.filter(function(c) { return getComputedStyle(c).display !== 'none'; });
-    var numCards = visibleCards.length;
-    if (numCards === 0) return;
-
-    var progEl = progressElId ? document.getElementById(progressElId) : null;
-    var dots = progEl ? progEl.querySelectorAll(dotSelector || '.x') : [];
-    var countEl = progEl ? progEl.querySelector(countSelector || '.x') : null;
-
-    spacer.style.height = (numCards * 100) + 'vh';
-
-    var ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(function() {
-                var rect = spacer.getBoundingClientRect();
-                var spacerH = spacer.offsetHeight;
-                var viewH = window.innerHeight;
-                var headerH = 60; // モバイルヘッダーの高さ
-                var inRange = rect.top <= headerH && rect.bottom >= viewH;
-                var pastEnd = rect.bottom < viewH;
-
-                if (inRange) {
-                    stickyEl.classList.add('is-fixed');
-                    stickyEl.classList.remove('is-bottom');
-                } else if (pastEnd) {
-                    stickyEl.classList.remove('is-fixed');
-                    stickyEl.classList.add('is-bottom');
-                } else {
-                    stickyEl.classList.remove('is-fixed');
-                    stickyEl.classList.remove('is-bottom');
-                }
-
-                var scrolled = -(rect.top - headerH);
-                var maxScroll = spacerH - viewH;
-                var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
-                var totalWidth = numCards * window.innerWidth;
-                var translateX = progress * (totalWidth - window.innerWidth);
-                grid.style.transform = 'translateX(' + (-translateX) + 'px)';
-
-                var activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
-                if (progEl) {
-                    var inView = rect.top < viewH && rect.bottom > 0;
-                    progEl.classList.toggle('show', inView);
-                }
-                if (dots.length > 0) {
-                    dots.forEach(function(dot, i) {
-                        dot.classList.remove('active', 'passed');
-                        if (i === activeIdx) dot.classList.add('active');
-                        else if (i < activeIdx) dot.classList.add('passed');
-                    });
-                }
-                if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-}
-
-// Feature & Cases: 縦スクロール駆動の横スライド
-if (window.innerWidth <= 768) {
-  // === FEATURES ===
-  setupScrollDrivenSlide(
-    'featuresScrollSpacer', 'featuresSticky', 'featuresGrid',
-    '.feature-card', 'featureProgress',
-    '.feature-progress-dot', '.feature-progress-count'
-  );
-
-  // === CASES ===
-  setupScrollDrivenSlide(
-    'casesScrollSpacer', 'casesSticky', 'casesCarouselMobile',
-    '.case-card', null, null, null
-  );
-  // スクロールバー更新
-  (function() {
-    var spacer = document.getElementById('casesScrollSpacer');
-    var thumb = document.querySelector('.cases-scroll-bar-personal .scroll-thumb');
-    if (!spacer || !thumb) return;
-    window.addEventListener('scroll', function() {
-      var rect = spacer.getBoundingClientRect();
-      var spacerH = spacer.offsetHeight;
-      var viewH = window.innerHeight;
-      var headerH = 60;
-      var scrolled = -(rect.top - headerH);
-      var maxScroll = spacerH - viewH;
-      var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
-      var trackW = thumb.parentElement.clientWidth;
-      var thumbW = thumb.clientWidth;
-      thumb.style.left = (progress * (trackW - thumbW)) + 'px';
-    });
-  })();
-}
+// (横スクロール機構は削除 — 縦スクロールに戻し済み)
+// function setupScrollDrivenSlide(spacerId, stickyId, gridId, cardSelector, progressElId, dotSelector, countSelector) {
+//     var spacer = document.getElementById(spacerId);
+//     var stickyEl = document.getElementById(stickyId);
+//     var grid = document.getElementById(gridId);
+//     if (!spacer || !stickyEl || !grid) return;
+//
+//     var allCards = Array.from(grid.querySelectorAll(cardSelector));
+//     var visibleCards = allCards.filter(function(c) { return getComputedStyle(c).display !== 'none'; });
+//     var numCards = visibleCards.length;
+//     if (numCards === 0) return;
+//
+//     var progEl = progressElId ? document.getElementById(progressElId) : null;
+//     var dots = progEl ? progEl.querySelectorAll(dotSelector || '.x') : [];
+//     var countEl = progEl ? progEl.querySelector(countSelector || '.x') : null;
+//
+//     spacer.style.height = (numCards * 100) + 'vh';
+//
+//     var ticking = false;
+//     window.addEventListener('scroll', function() {
+//         if (!ticking) {
+//             requestAnimationFrame(function() {
+//                 var rect = spacer.getBoundingClientRect();
+//                 var spacerH = spacer.offsetHeight;
+//                 var viewH = window.innerHeight;
+//                 var headerH = 60; // モバイルヘッダーの高さ
+//                 var inRange = rect.top <= headerH && rect.bottom >= viewH;
+//                 var pastEnd = rect.bottom < viewH;
+//
+//                 if (inRange) {
+//                     stickyEl.classList.add('is-fixed');
+//                     stickyEl.classList.remove('is-bottom');
+//                 } else if (pastEnd) {
+//                     stickyEl.classList.remove('is-fixed');
+//                     stickyEl.classList.add('is-bottom');
+//                 } else {
+//                     stickyEl.classList.remove('is-fixed');
+//                     stickyEl.classList.remove('is-bottom');
+//                 }
+//
+//                 var scrolled = -(rect.top - headerH);
+//                 var maxScroll = spacerH - viewH;
+//                 var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+//                 var totalWidth = numCards * window.innerWidth;
+//                 var translateX = progress * (totalWidth - window.innerWidth);
+//                 grid.style.transform = 'translateX(' + (-translateX) + 'px)';
+//
+//                 var activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
+//                 if (progEl) {
+//                     var inView = rect.top < viewH && rect.bottom > 0;
+//                     progEl.classList.toggle('show', inView);
+//                 }
+//                 if (dots.length > 0) {
+//                     dots.forEach(function(dot, i) {
+//                         dot.classList.remove('active', 'passed');
+//                         if (i === activeIdx) dot.classList.add('active');
+//                         else if (i < activeIdx) dot.classList.add('passed');
+//                     });
+//                 }
+//                 if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
+//                 ticking = false;
+//             });
+//             ticking = true;
+//         }
+//     });
+// }
+//
+// // (横スクロール機構は削除 — 縦スクロールに戻し済み)
+// // Feature & Cases: 縦スクロール駆動の横スライド
+// if (window.innerWidth <= 768) {
+//   // === FEATURES ===
+//   setupScrollDrivenSlide(
+//     'featuresScrollSpacer', 'featuresSticky', 'featuresGrid',
+//     '.feature-card', 'featureProgress',
+//     '.feature-progress-dot', '.feature-progress-count'
+//   );
+//
+//   // === CASES ===
+//   setupScrollDrivenSlide(
+//     'casesScrollSpacer', 'casesSticky', 'casesCarouselMobile',
+//     '.case-card', null, null, null
+//   );
+//   // スクロールバー更新
+//   (function() {
+//     var spacer = document.getElementById('casesScrollSpacer');
+//     var thumb = document.querySelector('.cases-scroll-bar-personal .scroll-thumb');
+//     if (!spacer || !thumb) return;
+//     window.addEventListener('scroll', function() {
+//       var rect = spacer.getBoundingClientRect();
+//       var spacerH = spacer.offsetHeight;
+//       var viewH = window.innerHeight;
+//       var headerH = 60;
+//       var scrolled = -(rect.top - headerH);
+//       var maxScroll = spacerH - viewH;
+//       var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+//       var trackW = thumb.parentElement.clientWidth;
+//       var thumbW = thumb.clientWidth;
+//       thumb.style.left = (progress * (trackW - thumbW)) + 'px';
+//     });
+//   })();
+// }
 </script>
 
 <!-- ============================================
