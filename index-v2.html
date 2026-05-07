@@ -55,7 +55,7 @@
             line-height: 1.8;
             background: var(--bg-white);
             -webkit-font-smoothing: antialiased;
-            overflow-x: clip;
+            overflow-x: hidden;
         }
         .header {
             position: fixed; top: 0; left: 0; right: 0;
@@ -670,22 +670,80 @@
                 padding: 0 !important;
                 background: transparent !important;
             }
-            /* features: 縦スクロール（カード縦積み） */
-            .features-section-header-mobile { display: none; }
+            .features-scroll-spacer {
+                display: block;
+                position: relative;
+            }
+            .features-sticky {
+                display: block;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                height: 100dvh;
+                overflow: hidden;
+            }
+            .features-sticky .section-header {
+                position: absolute;
+                top: 16px;
+                left: 0; right: 0;
+                z-index: 10;
+                margin-bottom: 0;
+                padding: 0 20px;
+            }
+            .features-sticky .section-header .section-label { font-size: 12px; margin-bottom: 4px; }
+            .features-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
+            .features-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
             .features-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+                grid-template-columns: 1fr; gap: 0;
+                display: flex !important;
+                position: absolute;
+                top: 0; left: 0;
+                height: 100%;
+                will-change: transform;
             }
             .feature-card {
                 min-height: auto;
-                padding: 24px 20px;
-                border-radius: 16px;
+                height: 100vh;
+                height: 100dvh;
+                width: 100vw;
+                flex: 0 0 100vw;
+                padding: 100px 24px 40px;
+                border-radius: 0;
+                border: none;
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 align-items: center;
                 text-align: center;
+                position: relative;
+                overflow: hidden;
             }
-            .feature-card::before { display: none; }
+            /* 全カードに背景色（交互パターン・赤系） */
+            .feature-card:nth-child(1) { background: linear-gradient(180deg, #FEF2F2 0%, #FECACA 100%); }
+            .feature-card:nth-child(2) { background: linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%); }
+            .feature-card:nth-child(3) { background: linear-gradient(180deg, #ECFDF5 0%, #D1FAE5 100%); }
+            .feature-card:nth-child(4) { background: linear-gradient(180deg, #FEF2F2 0%, #FECACA 100%); }
+            .feature-card:nth-child(5) { background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%); }
+            .feature-card:nth-child(6) { background: linear-gradient(180deg, #ECFDF5 0%, #D1FAE5 100%); }
+            .feature-card:hover { transform: none; box-shadow: none; }
+
+            /* つなぎ目：前のカードの色が上から食い込む逆三角 */
+            .feature-card::before {
+                content: '';
+                position: absolute;
+                top: -1px; left: 10%; right: 10%;
+                width: 80%;
+                height: 32px;
+                clip-path: polygon(0 0, 100% 0, 50% 100%);
+                z-index: 2;
+                transform: none !important;
+            }
+            .feature-card:nth-child(1)::before { display: none; }
+            .feature-card:nth-child(2)::before { background: #FECACA; }
+            .feature-card:nth-child(3)::before { background: #FFEDD5; }
+            .feature-card:nth-child(4)::before { background: #D1FAE5; }
+            .feature-card:nth-child(5)::before { background: #FECACA; }
+            .feature-card:nth-child(6)::before { background: #FEF3C7; }
 
             /* 番号：左上に固定 */
             .feature-number {
@@ -820,14 +878,77 @@
             .download-cta-image { flex: 0 0 auto; max-width: 240px; margin: 0 auto; }
             .download-cta-title { font-size: 20px; }
 
-            /* === CASES (縦スクロール) === */
-            .cases-section-header-mobile { display: none; }
-            .cases-grid {
-                display: grid !important;
-                grid-template-columns: 1fr;
-                gap: 16px;
+            /* === CASES (縦スクロール駆動の横スライド) === */
+            #cases {
+                padding: 0 !important;
             }
-            .cases-scroll-bar { display: none; }
+            .cases-scroll-spacer {
+                display: block;
+                position: relative;
+            }
+            .cases-sticky {
+                display: block;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                height: 100dvh;
+                overflow: hidden;
+            }
+            .cases-sticky .section-header {
+                position: absolute;
+                top: 16px;
+                left: 0; right: 0;
+                z-index: 10;
+                margin-bottom: 0;
+                padding: 0 20px;
+            }
+            .cases-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
+            .cases-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
+            .cases-grid {
+                display: flex !important;
+                position: absolute;
+                top: 0; left: 0;
+                height: 100%;
+                will-change: transform;
+                gap: 0;
+                padding: 0;
+                margin: 0;
+                overflow: visible;
+            }
+            .cases-grid::-webkit-scrollbar { display: none; }
+            .case-card {
+                flex: 0 0 85vw;
+                margin: 0 2.5vw;
+                height: auto;
+                align-self: center;
+            }
+            .case-card:first-child { margin-left: 7.5vw; }
+            .case-card:last-child { margin-right: 7.5vw; }
+            .cases-scroll-bar {
+                display: block;
+                position: absolute;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                width: 60%;
+                max-width: 200px;
+                height: 3px;
+                background: rgba(0,0,0,0.1);
+                border-radius: 3px;
+                margin: 0 auto 20px;
+                position: relative;
+                overflow: hidden;
+            }
+            .cases-scroll-bar-thumb {
+                position: absolute;
+                top: 0; left: 0;
+                height: 100%;
+                width: 30%;
+                background: var(--primary);
+                border-radius: 3px;
+                transition: left 0.15s ease;
+            }
             .case-title { font-size: 17px; }
             .case-description { font-size: 14px; }
 
@@ -1097,16 +1218,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section class="section section-cream" id="features">
-    <div class="section-inner features-section-header-mobile">
+    <div class="features-scroll-spacer" id="featuresScrollSpacer">
+    <div class="features-sticky" id="featuresSticky">
+    <div class="section-inner">
         <div class="section-header">
             <span class="section-label">Features</span>
             <h2 class="section-title">スキャンProが選ばれる理由</h2>
             <p class="section-subtitle">価格・品質・対応力。すべてにおいて妥協しない、プロフェッショナルな電子化サービスです。</p>
         </div>
-    </div>
-    <div class="features-scroll-spacer" id="featuresScrollSpacer">
-    <div class="features-sticky" id="featuresSticky">
-        <div class="section-inner">
         <div class="features-grid" id="featuresGrid">
             <div class="feature-card fade-in">
                 <span class="feature-number">01</span>
@@ -1151,7 +1270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="feature-description">ファイル名・フォルダ構成・解像度など、業務に最適な形式で納品。難しい要望も100%実現。</p>
             </div>
         </div>
-        </div><!-- /.section-inner -->
+    </div>
     </div><!-- /.features-sticky -->
     </div><!-- /.features-scroll-spacer -->
 </section>
@@ -1214,16 +1333,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <section class="section" id="cases">
-    <div class="section-inner cases-section-header-mobile">
+    <div class="cases-scroll-spacer" id="casesScrollSpacer">
+    <div class="cases-sticky" id="casesSticky">
+    <div class="section-inner">
         <div class="section-header">
             <span class="section-label">Case Studies</span>
             <h2 class="section-title">業界別 導入事例</h2>
             <p class="section-subtitle">製造業・化学メーカー・工事会社・大学など、幅広い業界でご活用いただいています。</p>
         </div>
-    </div>
-    <div class="cases-scroll-spacer" id="casesScrollSpacer">
-    <div class="cases-sticky" id="casesSticky">
-        <div class="section-inner">
         <div class="cases-scroll-bar"><div class="cases-scroll-bar-thumb"></div></div>
         <div class="cases-grid" id="casesGrid">
             <div class="case-card fade-in">
@@ -1275,7 +1392,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </div>
-        </div><!-- /.section-inner -->
+    </div>
     </div><!-- /.cases-sticky -->
     </div><!-- /.cases-scroll-spacer -->
 </section>
@@ -1443,7 +1560,59 @@ document.getElementById('mobileNav').querySelectorAll('a').forEach(link => {
     });
 });
 
-// (横スクロール機構は削除 — 縦スクロールに戻し済み)
+// Feature horizontal scroll driven by vertical scroll
+if (window.innerWidth <= 768) {
+    const spacer = document.getElementById('featuresScrollSpacer');
+    const sticky = document.getElementById('featuresSticky');
+    const grid = document.getElementById('featuresGrid');
+    const featureCards = document.querySelectorAll('#features .feature-card');
+    const progressEl = document.getElementById('featureProgress');
+    const dots = progressEl ? progressEl.querySelectorAll('.feature-progress-dot') : [];
+    const countEl = progressEl ? progressEl.querySelector('.feature-progress-count') : null;
+    const numCards = featureCards.length;
+
+    if (spacer && grid && numCards > 0) {
+        // スペーサーの高さ = カード枚数 × 100vh（スクロール領域を確保）
+        spacer.style.height = (numCards * 100) + 'vh';
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    const rect = spacer.getBoundingClientRect();
+                    const spacerH = spacer.offsetHeight;
+                    const viewH = window.innerHeight;
+                    // スクロール進捗: 0（先頭）〜 1（末尾）
+                    const scrolled = -rect.top;
+                    const maxScroll = spacerH - viewH;
+                    const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+                    // 横方向のトランスレート
+                    const totalWidth = numCards * window.innerWidth;
+                    const translateX = progress * (totalWidth - window.innerWidth);
+                    grid.style.transform = 'translateX(' + (-translateX) + 'px)';
+
+                    // プログレスドット更新
+                    const activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
+                    if (progressEl) {
+                        // セクションが画面内にあるときだけ表示
+                        const inView = rect.top < viewH && rect.bottom > 0;
+                        progressEl.classList.toggle('show', inView);
+                    }
+                    dots.forEach(function(dot, i) {
+                        dot.classList.remove('active', 'passed');
+                        if (i === activeIdx) dot.classList.add('active');
+                        else if (i < activeIdx) dot.classList.add('passed');
+                    });
+                    if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+}
 </script>
 </div>
 
@@ -1567,7 +1736,49 @@ document.getElementById('mobileNav').querySelectorAll('a').forEach(link => {
 
 <!-- スキャン対象「その他」の表示切替 -->
 <script>
-// (cases横スクロール機構は削除 — 縦スクロールに戻し済み)
+// Cases horizontal scroll driven by vertical scroll
+if (window.innerWidth <= 768) {
+    (function() {
+        const spacer = document.getElementById('casesScrollSpacer');
+        const grid = document.getElementById('casesGrid');
+        const caseCards = grid ? grid.querySelectorAll('.case-card') : [];
+        const thumb = document.querySelector('.cases-scroll-bar-thumb');
+        const numCards = caseCards.length;
+
+        if (spacer && grid && numCards > 0) {
+            spacer.style.height = (numCards * 100) + 'vh';
+
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        var rect = spacer.getBoundingClientRect();
+                        var spacerH = spacer.offsetHeight;
+                        var viewH = window.innerHeight;
+                        var scrolled = -rect.top;
+                        var maxScroll = spacerH - viewH;
+                        var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+                        // 横方向トランスレート（カード幅 85vw + マージン 5vw = 90vw per card）
+                        var cardW = window.innerWidth * 0.9;
+                        var totalWidth = cardW * numCards + window.innerWidth * 0.075;
+                        var translateX = progress * (totalWidth - window.innerWidth);
+                        grid.style.transform = 'translateX(' + (-Math.max(0, translateX)) + 'px)';
+
+                        // スクロールバーthumb更新
+                        if (thumb) {
+                            var trackW = thumb.parentElement.clientWidth;
+                            var thumbW = thumb.clientWidth;
+                            thumb.style.left = (progress * (trackW - thumbW)) + 'px';
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        }
+    })();
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     var otherCheckboxes = document.querySelectorAll('input[name="scanTarget"]');
