@@ -665,49 +665,14 @@
                 font-weight: 500; line-height: 1.4;
             }
 
-            /* === FEATURES (縦スクロール駆動の横スライド) === */
-            #features {
-                padding: 0 !important;
-                background: transparent !important;
-            }
-            .features-scroll-spacer {
-                display: block;
-                position: relative;
-            }
-            .features-sticky {
-                display: block;
-                position: sticky;
-                top: 0;
-                height: 100vh;
-                height: 100dvh;
-                overflow: hidden;
-            }
-            .features-sticky .section-header {
-                position: absolute;
-                top: 16px;
-                left: 0; right: 0;
-                z-index: 10;
-                margin-bottom: 0;
-                padding: 0 20px;
-            }
-            .features-sticky .section-header .section-label { font-size: 12px; margin-bottom: 4px; }
-            .features-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
-            .features-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
+            /* === FEATURES (縦スクロール) === */
             .features-grid {
-                grid-template-columns: 1fr; gap: 0;
-                display: flex !important;
-                position: absolute;
-                top: 0; left: 0;
-                height: 100%;
-                will-change: transform;
+                grid-template-columns: 1fr;
+                gap: 0;
             }
             .feature-card {
                 min-height: auto;
-                height: 100vh;
-                height: 100dvh;
-                width: 100vw;
-                flex: 0 0 100vw;
-                padding: 100px 24px 40px;
+                padding: 60px 24px 40px;
                 border-radius: 0;
                 border: none;
                 display: flex;
@@ -795,50 +760,6 @@
             .feature-card:nth-child(6)::after { bottom: -70px; left: -70px; width: 240px; height: 240px; }
             .feature-card > * { position: relative; z-index: 1; }
 
-            /* Feature progress dots */
-            .feature-progress {
-                display: flex;
-                position: fixed;
-                right: 12px;
-                top: 50%;
-                transform: translateY(-50%);
-                flex-direction: column;
-                align-items: center;
-                gap: 6px;
-                z-index: 900;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                pointer-events: none;
-            }
-            .feature-progress.show { opacity: 1; }
-            .feature-progress-dot {
-                width: 10px; height: 10px;
-                border-radius: 50%;
-                background: rgba(185, 28, 28, 0.2);
-                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            .feature-progress-dot.active {
-                background: var(--primary);
-                width: 12px; height: 12px;
-                box-shadow: 0 0 8px rgba(185, 28, 28, 0.5);
-            }
-            .feature-progress-dot.passed {
-                background: var(--primary);
-                width: 10px; height: 10px;
-            }
-            .feature-progress-label {
-                font-size: 10px; font-weight: 700;
-                color: var(--primary);
-                writing-mode: vertical-rl;
-                letter-spacing: 0.1em;
-                margin-bottom: 4px;
-            }
-            .feature-progress-count {
-                font-size: 11px; font-weight: 800;
-                color: var(--primary);
-                font-family: 'Poppins', sans-serif;
-            }
-
             /* === MINI CTA === */
             .mini-cta-mobile {
                 display: block;
@@ -878,77 +799,13 @@
             .download-cta-image { flex: 0 0 auto; max-width: 240px; margin: 0 auto; }
             .download-cta-title { font-size: 20px; }
 
-            /* === CASES (縦スクロール駆動の横スライド) === */
-            #cases {
-                padding: 0 !important;
-            }
-            .cases-scroll-spacer {
-                display: block;
-                position: relative;
-            }
-            .cases-sticky {
-                display: block;
-                position: sticky;
-                top: 0;
-                height: 100vh;
-                height: 100dvh;
-                overflow: hidden;
-            }
-            .cases-sticky .section-header {
-                position: absolute;
-                top: 16px;
-                left: 0; right: 0;
-                z-index: 10;
-                margin-bottom: 0;
-                padding: 0 20px;
-            }
-            .cases-sticky .section-header .section-title { font-size: 20px; margin-bottom: 4px; }
-            .cases-sticky .section-header .section-subtitle { font-size: 12px; line-height: 1.5; }
+            /* === CASES (縦スクロール) === */
             .cases-grid {
-                display: flex !important;
-                position: absolute;
-                top: 0; left: 0;
-                height: 100%;
-                will-change: transform;
-                gap: 0;
-                padding: 0;
-                margin: 0;
-                overflow: visible;
+                display: grid !important;
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
-            .cases-grid::-webkit-scrollbar { display: none; }
-            .case-card {
-                flex: 0 0 85vw;
-                margin: 0 2.5vw;
-                height: auto;
-                align-self: center;
-            }
-            .case-card:first-child { margin-left: 7.5vw; }
-            .case-card:last-child { margin-right: 7.5vw; }
-            .cases-scroll-bar {
-                display: block;
-                position: absolute;
-                bottom: 24px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 10;
-                width: 60%;
-                max-width: 200px;
-                height: 3px;
-                background: rgba(0,0,0,0.1);
-                border-radius: 3px;
-                margin: 0 auto 20px;
-                position: relative;
-                overflow: hidden;
-            }
-            .cases-scroll-bar-thumb {
-                position: absolute;
-                top: 0; left: 0;
-                height: 100%;
-                width: 30%;
-                background: var(--primary);
-                border-radius: 3px;
-                transition: left 0.15s ease;
-            }
+            .cases-scroll-bar { display: none; }
             .case-title { font-size: 17px; }
             .case-description { font-size: 14px; }
 
@@ -1486,17 +1343,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </div>
 
-<!-- Mobile: Feature Progress Dots -->
-<div class="feature-progress" id="featureProgress">
-    <span class="feature-progress-label">特徴</span>
-    <div class="feature-progress-dot active" data-index="0"></div>
-    <div class="feature-progress-dot" data-index="1"></div>
-    <div class="feature-progress-dot" data-index="2"></div>
-    <div class="feature-progress-dot" data-index="3"></div>
-    <div class="feature-progress-dot" data-index="4"></div>
-    <div class="feature-progress-dot" data-index="5"></div>
-    <span class="feature-progress-count">1/6</span>
-</div>
 
 <div class="floating-mini hidden" id="floatingMini">
     <a href="tel:052-842-9697" class="floating-btn floating-phone" title="電話でお問い合わせ"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
@@ -1560,59 +1406,6 @@ document.getElementById('mobileNav').querySelectorAll('a').forEach(link => {
     });
 });
 
-// Feature horizontal scroll driven by vertical scroll
-if (window.innerWidth <= 768) {
-    const spacer = document.getElementById('featuresScrollSpacer');
-    const sticky = document.getElementById('featuresSticky');
-    const grid = document.getElementById('featuresGrid');
-    const featureCards = document.querySelectorAll('#features .feature-card');
-    const progressEl = document.getElementById('featureProgress');
-    const dots = progressEl ? progressEl.querySelectorAll('.feature-progress-dot') : [];
-    const countEl = progressEl ? progressEl.querySelector('.feature-progress-count') : null;
-    const numCards = featureCards.length;
-
-    if (spacer && grid && numCards > 0) {
-        // スペーサーの高さ = カード枚数 × 100vh（スクロール領域を確保）
-        spacer.style.height = (numCards * 100) + 'vh';
-
-        let ticking = false;
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(function() {
-                    const rect = spacer.getBoundingClientRect();
-                    const spacerH = spacer.offsetHeight;
-                    const viewH = window.innerHeight;
-                    // スクロール進捗: 0（先頭）〜 1（末尾）
-                    const scrolled = -rect.top;
-                    const maxScroll = spacerH - viewH;
-                    const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
-
-                    // 横方向のトランスレート
-                    const totalWidth = numCards * window.innerWidth;
-                    const translateX = progress * (totalWidth - window.innerWidth);
-                    grid.style.transform = 'translateX(' + (-translateX) + 'px)';
-
-                    // プログレスドット更新
-                    const activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
-                    if (progressEl) {
-                        // セクションが画面内にあるときだけ表示
-                        const inView = rect.top < viewH && rect.bottom > 0;
-                        progressEl.classList.toggle('show', inView);
-                    }
-                    dots.forEach(function(dot, i) {
-                        dot.classList.remove('active', 'passed');
-                        if (i === activeIdx) dot.classList.add('active');
-                        else if (i < activeIdx) dot.classList.add('passed');
-                    });
-                    if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
-
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-    }
-}
 </script>
 </div>
 
@@ -1736,49 +1529,6 @@ if (window.innerWidth <= 768) {
 
 <!-- スキャン対象「その他」の表示切替 -->
 <script>
-// Cases horizontal scroll driven by vertical scroll
-if (window.innerWidth <= 768) {
-    (function() {
-        const spacer = document.getElementById('casesScrollSpacer');
-        const grid = document.getElementById('casesGrid');
-        const caseCards = grid ? grid.querySelectorAll('.case-card') : [];
-        const thumb = document.querySelector('.cases-scroll-bar-thumb');
-        const numCards = caseCards.length;
-
-        if (spacer && grid && numCards > 0) {
-            spacer.style.height = (numCards * 100) + 'vh';
-
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    requestAnimationFrame(function() {
-                        var rect = spacer.getBoundingClientRect();
-                        var spacerH = spacer.offsetHeight;
-                        var viewH = window.innerHeight;
-                        var scrolled = -rect.top;
-                        var maxScroll = spacerH - viewH;
-                        var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
-
-                        // 横方向トランスレート（カード幅 85vw + マージン 5vw = 90vw per card）
-                        var cardW = window.innerWidth * 0.9;
-                        var totalWidth = cardW * numCards + window.innerWidth * 0.075;
-                        var translateX = progress * (totalWidth - window.innerWidth);
-                        grid.style.transform = 'translateX(' + (-Math.max(0, translateX)) + 'px)';
-
-                        // スクロールバーthumb更新
-                        if (thumb) {
-                            var trackW = thumb.parentElement.clientWidth;
-                            var thumbW = thumb.clientWidth;
-                            thumb.style.left = (progress * (trackW - thumbW)) + 'px';
-                        }
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-        }
-    })();
-}
 
 document.addEventListener('DOMContentLoaded', function() {
     var otherCheckboxes = document.querySelectorAll('input[name="scanTarget"]');

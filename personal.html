@@ -641,51 +641,8 @@
             .section-title { font-size: 22px; line-height: 1.4; }
             .section-subtitle { font-size: 13px; }
 
-            /* === FEATURE PROGRESS INDICATOR === */
-            .feature-progress {
-                display: flex;
-                position: fixed;
-                right: 12px;
-                top: 50%;
-                transform: translateY(-50%);
-                flex-direction: column;
-                align-items: center;
-                gap: 6px;
-                z-index: 900;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                pointer-events: none;
-            }
-            .feature-progress.show { opacity: 1; }
-            .feature-progress-dot {
-                width: 10px; height: 10px;
-                border-radius: 50%;
-                background: rgba(37, 99, 235, 0.2);
-                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            .feature-progress-dot.active {
-                background: var(--primary);
-                width: 12px; height: 12px;
-                box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
-            }
-            .feature-progress-dot.passed {
-                background: var(--primary);
-                width: 10px; height: 10px;
-            }
-            .feature-progress-label {
-                font-size: 10px;
-                font-weight: 700;
-                color: var(--primary);
-                writing-mode: vertical-rl;
-                letter-spacing: 0.1em;
-                margin-bottom: 4px;
-            }
-            .feature-progress-count {
-                font-size: 11px;
-                font-weight: 800;
-                color: var(--primary);
-                font-family: 'Poppins', sans-serif;
-            }
+            /* Feature progress dots hidden (vertical layout) */
+            .feature-progress { display: none !important; }
 
             /* === TRUST NUMBERS (マーキー直後・実績アピール) === */
             .trust-numbers {
@@ -1051,7 +1008,7 @@
             /* === FEATURES HEADER BACKGROUND === */
             .section-features-header { background: #F3F4F6; }
 
-            /* === FEATURES (横スナップスクロール) === */
+            /* === FEATURES (縦スクロール) === */
             #features {
                 padding: 0 !important;
                 background: transparent !important;
@@ -1071,23 +1028,13 @@
             .features-sticky .section-header .section-subtitle,
             #features .section-subtitle { font-size: 12px; line-height: 1.5; }
             .features-grid {
-                grid-template-columns: none !important;
-                display: flex !important;
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
+                grid-template-columns: 1fr;
                 gap: 0;
-                scrollbar-width: none;
             }
-            .features-grid::-webkit-scrollbar { display: none; }
             .feature-card {
                 min-height: auto;
-                height: 75vh;
-                width: 88vw;
-                flex: 0 0 88vw;
                 padding: 60px 24px 40px;
-                border-radius: 16px;
+                border-radius: 0;
                 border: none;
                 display: flex;
                 flex-direction: column;
@@ -1096,11 +1043,7 @@
                 text-align: center;
                 position: relative;
                 overflow: hidden;
-                scroll-snap-align: center;
-                margin: 12px 6px;
             }
-            .feature-card:first-child { margin-left: 6vw; }
-            .feature-card:last-child { margin-right: 6vw; }
             /* 全カードに背景色（交互パターン） */
             .feature-card:nth-child(1) { background: linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%); }
             .feature-card:nth-child(2) { background: linear-gradient(180deg, #F0FDF4 0%, #DCFCE7 100%); }
@@ -1110,19 +1053,9 @@
             .feature-card:nth-child(6) { background: linear-gradient(180deg, #F0FDF4 0%, #DCFCE7 100%); }
             .feature-card:hover { transform: none; box-shadow: none; }
 
-            /* 横スクロール時はつなぎ目不要 */
-            .feature-card::before { display: none !important; }
-
             /* スマホでは5・6番目を非表示 */
             .feature-card:nth-child(5),
             .feature-card:nth-child(6) { display: none !important; }
-
-            /* 横スクロール内のアニメーション無効化 */
-            .features-grid .feature-card,
-            .cases-carousel .case-card {
-                opacity: 1 !important;
-                transition: none !important;
-            }
 
             /* 番号：左上に固定 */
             .feature-number {
@@ -1190,7 +1123,7 @@
             .wave-separator.cream-to-dark svg { fill: var(--bg-dark); }
             .wave-separator.dark-to-blue svg { fill: #2563EB; }
 
-            /* === CASES (横スナップスクロール) === */
+            /* === CASES (縦スクロール) === */
             #cases { padding: 20px 0 !important; }
             .cases-scroll-spacer {
                 display: contents;
@@ -1207,53 +1140,14 @@
             #cases .section-title { font-size: 20px; margin-bottom: 4px; }
             .cases-sticky .section-header .section-subtitle,
             #cases .section-subtitle { font-size: 12px; line-height: 1.5; }
-            .cases-grid { display: none !important; }
-            .cases-carousel {
-                display: flex !important;
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                gap: 0;
-                padding: 12px 0;
-                scrollbar-width: none;
+            .cases-grid {
+                display: grid !important;
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 0 16px;
             }
-            .cases-carousel::-webkit-scrollbar { display: none; }
-            .cases-carousel .case-card {
-                flex: 0 0 82vw;
-                margin: 0 2.5vw;
-                height: auto;
-                scroll-snap-align: center;
-                border-radius: 16px;
-                overflow: hidden;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            }
-            .cases-carousel .case-card:first-child { margin-left: 5vw; }
-            .cases-carousel .case-card:last-child { margin-right: 5vw; }
-            /* スクロール促進の矢印・スワイプインジケーターを非表示 */
-            .carousel-scroll-hint { display: none !important; }
-            .swipe-indicator { display: none !important; }
-            /* スクロールバー */
-            .cases-scroll-bar-personal {
-                display: block;
-                position: relative;
-                margin: 12px auto 0;
-                width: 60%;
-                max-width: 200px;
-                height: 3px;
-                background: rgba(0,0,0,0.1);
-                border-radius: 3px;
-                overflow: hidden;
-            }
-            .cases-scroll-bar-personal .scroll-thumb {
-                position: absolute;
-                top: 0; left: 0;
-                height: 100%;
-                width: 30%;
-                background: var(--primary);
-                border-radius: 3px;
-                transition: left 0.15s ease;
-            }
+            .cases-carousel { display: none !important; }
+            .cases-scroll-bar-personal { display: none; }
             .case-image { aspect-ratio: 16/10; }
             .case-content { padding: 20px; }
             .case-badge { font-size: 13px; padding: 3px 12px; }
@@ -1676,14 +1570,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- Feature Progress Indicator (mobile only) -->
-<div class="feature-progress" id="featureProgress">
-    <div class="feature-progress-label">選ばれる理由</div>
-    <div class="feature-progress-count" id="featureProgressCount">1/4</div>
-    <div class="feature-progress-dot active" data-idx="0"></div>
-    <div class="feature-progress-dot" data-idx="1"></div>
-    <div class="feature-progress-dot" data-idx="2"></div>
-    <div class="feature-progress-dot" data-idx="3"></div>
-</div>
 
 <!-- 納期目安セクション -->
 <div class="delivery-section">
@@ -2240,68 +2126,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.05, rootMargin: '50px 0px 0px 0px' });
 document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => observer.observe(el));
 
-// Feature & Cases: 横スナップスクロール（プログレス更新）
-if (window.innerWidth <= 768) {
-  // === FEATURES ===
-  (function() {
-    var grid = document.getElementById('featuresGrid');
-    var progressEl = document.getElementById('featureProgress');
-    var dots = progressEl ? progressEl.querySelectorAll('.feature-progress-dot') : [];
-    var countEl = document.getElementById('featureProgressCount');
-    if (!grid) return;
-    var visibleCards = Array.from(grid.querySelectorAll('.feature-card')).filter(function(c) { return getComputedStyle(c).display !== 'none'; });
-    var numCards = visibleCards.length;
-    if (numCards === 0) return;
-
-    // スクロール位置でプログレスドット更新
-    grid.addEventListener('scroll', function() {
-      var scrollLeft = grid.scrollLeft;
-      var maxScroll = grid.scrollWidth - grid.clientWidth;
-      var progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
-      var activeIdx = Math.min(Math.round(progress * (numCards - 1)), numCards - 1);
-
-      // プログレスインジケーター表示
-      if (progressEl) progressEl.classList.add('show');
-      dots.forEach(function(dot, i) {
-        dot.classList.remove('active', 'passed');
-        if (i === activeIdx) dot.classList.add('active');
-        else if (i < activeIdx) dot.classList.add('passed');
-      });
-      if (countEl) countEl.textContent = (activeIdx + 1) + '/' + numCards;
-    });
-
-    // IntersectionObserverでプログレス表示/非表示
-    if (progressEl) {
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          progressEl.classList.toggle('show', entry.isIntersecting);
-        });
-      }, { threshold: 0.1 });
-      io.observe(grid);
-    }
-  })();
-
-  // === CASES ===
-  (function() {
-    var carousel = document.getElementById('casesCarouselMobile');
-    var thumb = document.querySelector('.cases-scroll-bar-personal .scroll-thumb');
-    if (!carousel) return;
-    var caseCards = carousel.querySelectorAll('.case-card');
-    var numCards = caseCards.length;
-    if (numCards === 0) return;
-
-    // スクロール位置でスクロールバー更新
-    carousel.addEventListener('scroll', function() {
-      if (!thumb) return;
-      var scrollLeft = carousel.scrollLeft;
-      var maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      var progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
-      var trackW = thumb.parentElement.clientWidth;
-      var thumbW = thumb.clientWidth;
-      thumb.style.left = (progress * (trackW - thumbW)) + 'px';
-    });
-  })();
-}
 </script>
 
 <!-- ============================================
