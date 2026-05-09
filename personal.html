@@ -1159,14 +1159,8 @@
             .case-stars span { color: var(--text-secondary); font-size: 12px; font-weight: 600; letter-spacing: 0; margin-left: 4px; }
 
             /* === SWIPE INDICATOR === */
-            .swipe-indicator { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px; }
-            .swipe-dots { display: flex; gap: 6px; }
-            .swipe-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all 0.3s ease; }
-            .swipe-dot.active { background: var(--primary); width: 20px; border-radius: 4px; }
-            .swipe-hint { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-muted); animation: swipeHintPulse 2s ease-in-out infinite; }
-            .swipe-hint svg { animation: swipeArrow 1.5s ease-in-out infinite; }
-            @keyframes swipeHintPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-            @keyframes swipeArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+            .swipe-indicator { display: none !important; }
+            .carousel-scroll-hint { display: none !important; }
 
             /* === PROBLEM SECTION (リッチ) === */
             .section-dark { padding: 56px 20px; }
